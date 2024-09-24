@@ -73,4 +73,9 @@ export class VitrineComponent {
       valor: 1969.90, quantidade: 10, keywords: "Placa de Video"
     }
   ]
+
+  public verDetalhe(item:Produto) {
+    localStorage.setItem("produto", JSON.stringify(item));
+    window.location.href="./detalhe";
+  }
 }
