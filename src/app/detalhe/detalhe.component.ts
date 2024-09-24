@@ -1,12 +1,24 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Produto } from '../model/produto';
 
 @Component({
   selector: 'app-detalhe',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './detalhe.component.html',
   styleUrl: './detalhe.component.css'
 })
-export class DetalheComponent {
 
+export class DetalheComponent {
+  public mensagem: string ="";
+  public item: Produto = new Produto();
+  constructor(){
+    let json = localStorage.getItem("produto");
+    if (json != null) {
+      this.item = JSON.parse(json);
+    } else {
+      this.mensagem = "Produto não encontrado!"
+    }
+  }
 }
