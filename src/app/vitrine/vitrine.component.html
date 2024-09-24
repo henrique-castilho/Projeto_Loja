@@ -1,1 +1,9 @@
-<p>vitrine works!</p>
+<h3>{{mensagem}}</h3>
+<h4="Produtos" *ngIf="lista.length <= 0">Não existe nenhum produto na vitrine</h4>
+<div *ngFor="let item of lista">
+    <h4>{{item.nome}}</h4>
+    <img src="./{{item.codigo}}.jpg" width="200"> <br>
+    <br>
+    R$ {{item.valor}}
+    <button *ngIf="item.quantidade">Comprar</button>
+</div>
