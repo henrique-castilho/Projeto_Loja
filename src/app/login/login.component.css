@@ -128,3 +128,19 @@ h2 {
 .register-link a:hover {
     text-decoration: underline;
 }
+
+#eyeIcon {
+    color: white;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.toggle-password i {
+    font-size: 20px;
+    color: #333;
+}
