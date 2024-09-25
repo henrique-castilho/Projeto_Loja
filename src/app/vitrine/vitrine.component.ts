@@ -11,7 +11,7 @@ import { Produto } from '../model/produto';
 })
 
 export class VitrineComponent {
-  public mensagem: string = "Nossos produtos";
+  public mensagem: string = "Nossos Produtos";
   public lista: Produto[] = [
     {codigo:1, nome:"Gabinete Gamer SuperFrame Super X", 
       descricao:"O gabinete gamer Super X da Superframe é uma opção de alto desempenho, com design Mid tower e painel frontal em vidro " + 
@@ -77,5 +77,9 @@ export class VitrineComponent {
   public verDetalhe(item:Produto) {
     localStorage.setItem("produto", JSON.stringify(item));
     window.location.href="./detalhe";
+  }
+  
+  public IrCadastro() {
+    window.location.href = "./cadastro";
   }
 }
