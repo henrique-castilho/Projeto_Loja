@@ -65,7 +65,7 @@
 .item-produto {
     background-color: #292929;
     color: white;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 0 20px #00b0ff;
@@ -74,6 +74,7 @@
 .item-produto img {
     width: 100%;
     height: auto;
+    max-height: 250px;
     margin-bottom: 10px;
     cursor: pointer;
 }
@@ -91,6 +92,7 @@
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    width: 100px;
 }
   
 .item-produto button:hover {
