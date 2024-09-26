@@ -10,6 +10,9 @@
 <body>
     <div class="container">
         <div class="form-box">
+            <a href="./vitrine" class="back-arrow">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
             <img src="./logo_loja.jpg" width="150" alt="Logo" class="logo">
             <h2>Cadastro</h2>
             <form>
@@ -30,9 +33,29 @@
                     <label>Telefone</label>
                 </div>
                 <div class="input-group">
+                    <input type="text" required pattern="\d{2}\.\d{3}\.\d{3}-\d{1}" title="Digite o RG no formato XX.XXX.XXX-X">
+                    <label>RG</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" required>
+                    <label>Logradouro</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" required pattern="\d{8}" title="Digite um CEP válido com 8 números">
+                    <label>CEP</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" required>
+                    <label>Cidade</label>
+                </div>
+                <div class="input-group">
                     <input type="password" required>
                     <label>Senha</label>
                     <i class="fas fa-eye" id="eyeIcon"></i>
+                </div>
+                <div class="input-group">
+                    <input type="text">
+                    <label>Complemento</label>
                 </div>
                 <div class="input-group">
                     <input type="password" required>
