@@ -82,4 +82,8 @@ export class VitrineComponent {
   public IrCadastro() {
     window.location.href = "./cadastro";
   }
+
+  public IrCesta() {
+    window.location.href ="./cesta"
+  }
 }
