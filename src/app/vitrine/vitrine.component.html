@@ -1,29 +1,6 @@
 <div class="container-vitrine">
-  <div class="banner">
-    <div class="conteudo-banner">
-      <div>
-        <img src="./logo_loja.jpg" alt="Logo" class="logo">
-      </div>
-      <div class="barra-busca">
-        <input type="text" placeholder="Buscar">
-        <button>OK</button>
-      </div>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-      <div class="icon-cadastrar">
-        <i class="fa-solid fa-user" (click)="IrCadastro()"></i>
-      </div>
-      <div class="icon-cesta">
-        <i class="fa-solid fa-cart-shopping" (click)="IrCesta()"></i>
-      </div>
-      <div class="bordao-loja">
-        <h1>ZERO BYTE</h1>
-        <p>Onde o Zero vira inovação e o Byte, solução!</p>
-      </div>
-    </div>
-  </div>
   <h3 class="mensagem">{{mensagem}}</h3>
   <h4 *ngIf="lista.length <= 0">Não existe nenhum produto na vitrine</h4>
-
   <div class="grade-produtos">
     <div class="item-produto" *ngFor="let item of lista">
       <img src="./{{item.codigo}}.jpg" alt="{{item.nome}}" width="200" (click)="verDetalhe(item)">
