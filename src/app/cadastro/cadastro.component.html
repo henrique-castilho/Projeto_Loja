@@ -1,72 +1,61 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <div class="container">
-        <div class="form-box">
-            <a href="./vitrine" class="back-arrow">
-                <i class="fa-solid fa-arrow-left"></i>
-            </a>
-            <img src="./logo_loja.jpg" width="150" alt="Logo" class="logo">
-            <h2>Cadastro</h2>
-            <form>
-                <div class="input-group">
-                    <input type="text" required>
-                    <label>Nome</label>
-                </div>
-                <div class="input-group">
-                    <input type="email" required>
-                    <label>Email</label>
-                </div>
-                <div class="input-group">
-                    <input type="text" required pattern="\d{11}" title="Digite um CPF válido com 11 números">
-                    <label>CPF</label>
-                </div>
-                <div class="input-group">
-                    <input type="tel" required pattern="\d{10,11}" title="Digite um número de telefone válido">
-                    <label>Telefone</label>
-                </div>
-                <div class="input-group">
-                    <input type="text" required pattern="\d{2}\.\d{3}\.\d{3}-\d{1}" title="Digite o RG no formato XX.XXX.XXX-X">
-                    <label>RG</label>
-                </div>
-                <div class="input-group">
-                    <input type="text" required>
-                    <label>Logradouro</label>
-                </div>
-                <div class="input-group">
-                    <input type="text" required pattern="\d{8}" title="Digite um CEP válido com 8 números">
-                    <label>CEP</label>
-                </div>
-                <div class="input-group">
-                    <input type="text" required>
-                    <label>Cidade</label>
-                </div>
-                <div class="input-group">
-                    <input type="password" required>
-                    <label>Senha</label>
-                    <i class="fas fa-eye" id="eyeIcon"></i>
-                </div>
-                <div class="input-group">
-                    <input type="text">
-                    <label>Complemento</label>
-                </div>
-                <div class="input-group">
-                    <input type="password" required>
-                    <label>Confirmar Senha</label>
-                    <i class="fas fa-eye" id="eyeIcon"></i>
-                </div>
-                <button type="submit" class="btn">Cadastrar</button>
-                <div class="login-link">
-                    Já tem uma conta criada? <a href="./login">Entre</a>
-                </div>
-            </form>
-        </div>
+<div class="container">
+    <a href="./vitrine" class="back-arrow">
+        <i class="fa-solid fa-arrow-left"></i>
+    </a>
+    <div class="form-box">
+        <h2>Cadastro</h2><br>
+        <div class="mensagem">{{mensagem}}</div> <br><br>
+        <form novalidate (ngSubmit)="gravar()">
+            <div class="input-group">
+                <input type="text" [(ngModel)]="obj.nome" name="nome" required title="Nome completo">
+                <label>Nome</label>
+            </div>
+            <div class="input-group">
+                <input type="email" [(ngModel)]="obj.email" name="email" required title="Email no modelo seuemail@gmai.com">
+                <label>Email</label>
+            </div>
+            <div class="input-group">
+                <input type="text" [(ngModel)]="obj.cpf" name="cpf" required pattern="\d{11}" title="Digite um CPF válido com 11 números">
+                <label>CPF</label>
+            </div>
+            <div class="input-group">
+                <input type="tel" [(ngModel)]="obj.telefone" name="telefone" required pattern="\d{10,11}" title="Digite um número de telefone válido">
+                <label>Telefone</label>
+            </div>
+            <div class="input-group">
+                <input type="text" [(ngModel)]="obj.rg" name="rg" required pattern="\d{2}\.\d{3}\.\d{3}-\d{1}" title="Digite o RG no formato XX.XXX.XXX-X">
+                <label>RG</label>
+            </div>
+            <div class="input-group">
+                <input type="text" [(ngModel)]="obj.logradouro" name="logradouro" required>
+                <label>Logradouro</label>
+            </div>
+            <div class="input-group">
+                <input type="text" [(ngModel)]="obj.cep" name="cep" required pattern="\d{8}" title="Digite um CEP válido com 8 números">
+                <label>CEP</label>
+            </div>
+            <div class="input-group">
+                <input type="text" [(ngModel)]="obj.cidade" name="cidade" required>
+                <label>Cidade</label>
+            </div>
+            <div class="input-group">
+                <input type="password" [(ngModel)]="obj.senha" name="senha" required>
+                <label>Senha</label>
+                <i class="fas fa-eye" id="eyeIcon"></i>
+            </div>
+            <div class="input-group">
+                <input type="text" [(ngModel)]="obj.complemento" name="complemento">
+                <label>Complemento</label>
+            </div>
+            <div class="input-group">
+                <input type="password" [(ngModel)]="obj.confirmarSenha" name="confirmarSenha" required>
+                <label>Confirmar Senha</label>
+                <i class="fas fa-eye" id="eyeIcon"></i>
+            </div>
+            <button type="submit" class="btn">Cadastrar</button>
+            <div class="login-link">
+                Já tem uma conta criada? <a href="./login">Entre</a>
+            </div>
+        </form>
     </div>
-</body>
-</html>
+</div>

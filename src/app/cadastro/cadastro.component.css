@@ -1,18 +1,7 @@
 * {
-    margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
-}
-
-body {
-    background-color: #1f1f1f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #fff;
-    flex-direction: column;
 }
 
 .container {
@@ -25,20 +14,8 @@ body {
     flex-direction: column;
 }
 
-.banner {
-    background-color: #00b0ff;
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-    color: white;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 15px rgba(0, 176, 255, 0.5);
-}
-
-.banner h1 {
-    font-size: 36px;
-    margin: 0;
+.mensagem {
+    color: white
 }
 
 .form-box {
@@ -49,6 +26,7 @@ body {
     max-width: 100%;
     box-shadow: 0 0 20px #00b0ff;
     text-align: center;
+    
 }
 
 form {
@@ -130,6 +108,7 @@ h2 {
     font-size: 14px;
     grid-column: 1 / span 2;
     text-align: center;
+    color: white ;
 }
 
 .login-link a {
