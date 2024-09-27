@@ -16,6 +16,10 @@ export class AppComponent {
   }
 
   public IrCesta() {
-    window.location.href ="./cesta"
+    window.location.href = "./cesta"
+  }
+
+  public IrVitrine() {
+    window.location.href = "./vitrine"
   }
 }
