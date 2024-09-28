@@ -1,3 +1,19 @@
+<div id="modalConfirmacaoCarrinho" class="modal" *ngIf="mostrarModalCarrinho">
+  <div class="modal-conteudo">
+    <h2>Produto adicionado ao carrinho!</h2>
+    <button (click)="fecharModalCarrinho()">Fechar</button>
+  </div>
+</div>
+
+<div id="modalConfirmacao" class="modal" *ngIf="mostrarModal">
+  <div class="modal-conteudo">
+    <h2>Confirmação</h2>
+    <p>Você deseja adicionar este produto ao carrinho?</p>
+    <button (click)="confirmarAdicao()">Confirmar</button>
+    <button (click)="cancelarAdicao()">Cancelar</button>
+  </div>
+</div>
+
 <div class="container-vitrine">
   <h3 class="mensagem">{{mensagem}}</h3>
   <h4 *ngIf="lista.length <= 0">Não existe nenhum produto na vitrine</h4>
@@ -7,7 +23,7 @@
       <h4>{{item.nome}}</h4>
       <p>R$ {{item.valor}}</p>
       <button class="btnVerDetalhe" (click)="verDetalhe(item)">Ver Detalhes</button>
-      <button class="btnComprar" *ngIf="item.quantidade">Comprar</button>
+      <button class="btnComprar" *ngIf="item.quantidade" (click)="adicionarCesta(item)">Comprar</button>
     </div>
   </div>
 </div>
