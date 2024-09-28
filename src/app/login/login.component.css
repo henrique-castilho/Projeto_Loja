@@ -1,18 +1,7 @@
 * {
-    margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
-}
-
-body {
-    background-color: #1f1f1f;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    color: #fff;
-    overflow-x: hidden;
 }
 
 .container {
@@ -37,6 +26,13 @@ h2 {
     color: white;
     margin-bottom: 60px;
     margin-top: -10px;
+}
+
+.mensagem {
+    color: white;
+    position: relative;
+    top: -47px; 
+
 }
 
 .input-group {
@@ -116,15 +112,19 @@ h2 {
 .register-link {
     margin-top: 20px;
     font-size: 14px;
+    color: white;
 }
 
-.register-link a {
+.register-link button{
     color: #00b0ff;
     font-weight: bold;
     text-decoration: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;  
 }
 
-.register-link a:hover {
+.register-link button:hover {
     text-decoration: underline;
 }
 
