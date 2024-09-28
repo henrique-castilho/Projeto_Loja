@@ -78,12 +78,4 @@ export class VitrineComponent {
     localStorage.setItem("produto", JSON.stringify(item));
     window.location.href="./detalhe";
   }
-  
-  public IrCadastro() {
-    window.location.href = "./cadastro";
-  }
-
-  public IrCesta() {
-    window.location.href ="./cesta"
-  }
 }
