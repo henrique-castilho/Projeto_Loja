@@ -1,37 +1,28 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <div class="container">
-        <div class="form-box">
-            <a href="./cadastro" class="back-arrow">
-                <i class="fa-solid fa-arrow-left"></i>
-            </a>
-            <h2>Login</h2>
-            <form>
-                <div class="input-group">
-                    <input type="email" required>
-                    <label>Email</label>
-                </div>
-                <div class="input-group">
-                    <input type="password" required>
-                    <label>Senha</label>
-                    <i class="fas fa-eye" id="eyeIcon"></i>
-                </div>
-                <div class="forgot-pass">
-                    <a href="./esqueci-senha">Esqueceu sua senha?</a>
-                </div>
-                <button type="submit" class="btn">Entrar</button>
-                <div class="register-link">
-                    Não tem uma conta? <a href="./cadastro">Cadastre-se</a>
-                </div>
-            </form>
-        </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<div class="container">
+    <div class="form-box">
+        <a href="./cadastro" class="back-arrow">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <h2>Login</h2>
+        <b class="mensagem">{{mensagem}}</b>
+        <form>
+            <div class="input-group">
+                <input type="email" [(ngModel)]="obj.email" name="email" required>
+                <label>Email</label>
+            </div>
+            <div class="input-group">
+                <input type="password" [(ngModel)]="obj.senha" name="senha" required>
+                <label>Senha</label>
+                <i class="fas fa-eye" id="eyeIcon"></i>
+            </div>
+            <div class="forgot-pass">
+                <a href="./esqueci-senha">Esqueceu sua senha?</a>
+            </div>
+            <button type="submit" class="btn" (click)="fazerLogin()">Entrar</button>
+            <div class="register-link">
+                Não tem uma conta? <button type="button" (click)="novoCadastro()">Cadastre-se</button>
+            </div>
+        </form>
     </div>
-</body>
-</html>
+</div>
