@@ -78,4 +78,38 @@ export class VitrineComponent {
     localStorage.setItem("produto", JSON.stringify(item));
     window.location.href="./detalhe";
   }
+  
+  public mostrarModal: boolean = false;
+  public mostrarModalCarrinho: boolean = false;
+  public produtoSelecionado: Produto | null = null;
+
+  public adicionarCesta(item: Produto) {
+    this.produtoSelecionado = item;
+    this.mostrarModal = true;
+  }
+
+  public confirmarAdicao() {
+    if (this.produtoSelecionado) {
+      let cesta = JSON.parse(localStorage.getItem("cesta") || '[]');
+      cesta.push(this.produtoSelecionado);
+      localStorage.setItem("cesta", JSON.stringify(cesta));
+      this.fecharModal(); 
+
+      this.mostrarModalCarrinho = true;
+    }
+  }
+
+  public cancelarAdicao() {
+    console.log("Ação cancelada pelo usuário.");
+    this.fecharModal();
+  }
+
+  public fecharModal() {
+    this.mostrarModal = false;
+    this.produtoSelecionado = null;
+  }
+
+  public fecharModalCarrinho() {
+    this.mostrarModalCarrinho = false;
+  }
 }
