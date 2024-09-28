@@ -4,8 +4,8 @@
     </a>
     <div class="form-box">
         <h2>Cadastro</h2><br>
-        <div class="mensagem">{{mensagem}}</div> <br><br>
-        <form novalidate (ngSubmit)="gravar()">
+        <div class="mensagem"><b><pre>{{ mensagem }}</pre></b></div> <br><br>
+        <form>
             <div class="input-group">
                 <input type="text" [(ngModel)]="obj.nome" name="nome" required title="Nome completo">
                 <label>Nome</label>
@@ -52,7 +52,7 @@
                 <label>Confirmar Senha</label>
                 <i class="fas fa-eye" id="eyeIcon"></i>
             </div>
-            <button type="submit" class="btn">Cadastrar</button>
+            <button type="submit" class="btn"(click)="gravar()">Cadastrar</button>
             <div class="login-link">
                 Já tem uma conta criada? <a href="./login">Entre</a>
             </div>

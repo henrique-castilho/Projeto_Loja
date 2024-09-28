@@ -13,13 +13,32 @@ import { Cliente } from '../model/cliente';
 })
 
 export class CadastroComponent {
-  public mensagem: string = "";
+  public mensagem: string = "Preencha os campos que deseja\nAtualizar/Cadastrar";
   public obj: Cliente = new Cliente();
 
-  public gravar(){
-    localStorage.setItem("cadastro", JSON.stringify(this.obj))
-    this.mensagem = "Cadastro atualizado com sucesso!";
-  }
+  public gravar() {
+    if (
+        this.obj.nome != "" &&
+        this.obj.email != "" &&
+        this.obj.cpf != "" &&
+        this.obj.telefone != "" &&
+        this.obj.rg != "" &&
+        this.obj.logradouro != "" &&
+        this.obj.cep != "" &&
+        this.obj.cidade != "" &&
+        this.obj.senha != "" &&
+        this.obj.confirmarSenha != ""
+    ) {
+        if (this.obj.senha === this.obj.confirmarSenha) {
+            localStorage.setItem("cadastro", JSON.stringify(this.obj));
+            this.mensagem = "Cadastro atualizado/criado com sucesso!";
+        } else {
+            this.mensagem = "Senha e a confirmação devem ser iguais";
+        }
+    } else {
+        this.mensagem = "Preencha todos os campos";
+    }
+}
 
   public carregar(){
     let json = localStorage.getItem("cadastro");
