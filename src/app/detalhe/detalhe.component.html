@@ -1,10 +1,25 @@
-<p>detalhe works!</p>
+<div id="modalConfirmacaoCarrinho" class="modal" *ngIf="mostrarModalCarrinho">
+    <div class="modal-conteudo">
+        <h2>Produto adicionado ao carrinho!</h2>
+        <button (click)="fecharModalCarrinho()">Fechar</button>
+    </div>
+</div>
+
+<div id="modalConfirmacao" class="modal" *ngIf="mostrarModal">
+    <div class="modal-conteudo">
+        <h2>Confirmação</h2>
+        <p>Você deseja adicionar este produto ao carrinho?</p>
+        <button (click)="confirmarAdicao()">Confirmar</button>
+        <button (click)="cancelarAdicao()">Cancelar</button>
+    </div>
+</div>
+
 <h4>{{mensagem}}</h4>
-<div *ngIf="item.codigo > 0 ">
+<div class="container" *ngIf="item.codigo > 0">
     <h3>{{item.nome}}</h3>
-    <img src="./{{item.codigo}}.jpg" width="250"> <br>
-    {{item.descricao}} <br>
-    R$ {{item.valor}} <br>
-    <button *ngIf="item.quantidade > 0">Comprar</button>
+    <img src="./{{item.codigo}}.jpg" width="250" alt="{{item.nome}}"> <!-- Adicionei o atributo alt -->
+    <p>{{item.descricao}}</p> <!-- Envolvido em <p> para formatação e espaçamento -->
+    <div class="valor-item">R$ {{item.valor}}</div> <!-- Usando a classe "valor-item" para estilização -->
+    <button *ngIf="item.quantidade > 0" (click)="adicionarCesta(item)">Comprar</button>
     <div *ngIf="item.quantidade <= 0">Sem estoque</div>
 </div>
