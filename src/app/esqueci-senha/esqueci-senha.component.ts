@@ -16,7 +16,7 @@ export class EsqueciSenhaComponent {
   public obj: Cliente = new Cliente();
 
   public reenviar(){
-    if(this.obj.email == ""){
+    if(this.obj.email === ""){
       this.mensagem = "Preencha o campo e-mail.";
     } else {
       this.mensagem = "As instruções foram enviada para o email: " + this.obj.email;
