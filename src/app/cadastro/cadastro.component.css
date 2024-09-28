@@ -10,8 +10,7 @@
     padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    margin: auto;
 }
 
 .mensagem {
@@ -25,8 +24,7 @@
     width: 600px;
     max-width: 100%;
     box-shadow: 0 0 20px #00b0ff;
-    text-align: center;
-    
+    text-align: center;   
 }
 
 form {
@@ -39,7 +37,7 @@ form {
 
 h2 {
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 2px;
     margin-top: -10px;
     grid-column: 1 / span 2;
 }
