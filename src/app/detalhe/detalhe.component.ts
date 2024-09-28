@@ -43,7 +43,6 @@ export class DetalheComponent {
   }
 
   public cancelarAdicao() {
-    console.log("Ação cancelada pelo usuário.");
     this.fecharModal();
   }
 
