@@ -134,19 +134,3 @@ h2 {
     font-size: 20px;
     color: #333;
 }
-
-.back-arrow {
-    display: inline-block;
-    margin-bottom: 20px;
-    font-size: 45px;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-}
-
-.back-arrow:hover {
-    color: #555;
-}
