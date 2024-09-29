@@ -1,6 +1,8 @@
 body {
     background-color: #1f1f1f;
     margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 .banner {
@@ -84,3 +86,34 @@ body {
     font-size: 18px;
     margin-top: 10px;
 }
+
+ @media (orientation: portrait) {
+    body {
+        font-size: 14px;
+        background-color: #1f1f1f;
+    }
+
+    .logo {
+        left: 13%;
+        transform: translateX(-50%);
+    }
+
+    .barra-busca {
+        top: 12px;
+        flex-direction: column;
+    }
+
+    .barra-busca input {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    .bordao-loja h1 {
+        font-size: 60px;
+    }
+
+    .mensagem {
+        font-size: 24px;
+    }
+}
+

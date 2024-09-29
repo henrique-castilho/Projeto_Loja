@@ -21,7 +21,7 @@
     <div class="item-produto" *ngFor="let item of lista">
       <img src="./{{item.codigo}}.jpg" alt="{{item.nome}}" width="200" (click)="verDetalhe(item)">
       <h4>{{item.nome}}</h4>
-      <p>R$ {{item.valor}}</p>
+      <p>R$ {{item.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}}</p>
       <button class="btnVerDetalhe" (click)="verDetalhe(item)">Ver Detalhes</button>
       <button class="btnComprar" *ngIf="item.quantidade" (click)="adicionarCesta(item)">Comprar</button>
     </div>

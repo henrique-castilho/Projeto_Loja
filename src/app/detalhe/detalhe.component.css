@@ -88,3 +88,13 @@ h4 {
     text-align: center;
     margin-top: 20px;
 }
+
+@media (orientation: portrait) {
+    .container {
+        max-width: 300px;
+    }
+
+    .valor-item {
+        text-align: center;
+    }
+}
