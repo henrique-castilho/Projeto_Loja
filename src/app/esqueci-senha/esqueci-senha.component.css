@@ -27,6 +27,7 @@ h2 {
     color: white;
     margin-bottom: 60px;
     margin-top: -10px;
+    font-size: 20px;
 }
 
 .mensagem {
@@ -90,4 +91,22 @@ h2 {
 
 .btn:hover {
     background-color: #0090e0;
+}
+
+@media (orientation: portrait) {
+    .container {
+        height: auto;
+        margin-left: 11%;
+        width: 82%;
+    }
+    
+    h2 {
+        margin-top: -35px;
+        font-size:medium 
+     }
+
+    .mensagem {
+        font-size: 15px;
+        top: -40px; 
+    }
 }

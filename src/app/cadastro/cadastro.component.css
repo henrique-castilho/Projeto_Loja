@@ -14,7 +14,7 @@
 }
 
 .mensagem {
-    color: white
+    color: white;
 }
 
 .form-box {
@@ -133,4 +133,10 @@ h2 {
 .toggle-password i {
     font-size: 20px;
     color: #333;
+}
+
+@media (orientation: portrait) {
+    .mensagem {
+        font-size: 15px;
+    }   
 }

@@ -143,3 +143,25 @@ h2 {
     font-size: 20px;
     color: #333;
 }
+
+@media (orientation: portrait) {
+    .container {
+        margin-left: 10%;
+        width: 80%;
+    }
+
+    .forgot-pass {
+        text-align: center;
+        position: relative; 
+        top: 95px;
+    }
+
+    .register-link {
+        position: relative;
+        top: 30px;
+    }
+    
+    .mensagem {
+        font-size: medium;
+    }
+}

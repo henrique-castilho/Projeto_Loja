@@ -19,7 +19,7 @@
     <h3>{{item.nome}}</h3>
     <img src="./{{item.codigo}}.jpg" width="250" alt="{{item.nome}}">
     <p>{{item.descricao}}</p>
-    <div class="valor-item">R$ {{item.valor}}</div>
+    <div class="valor-item">R$ {{item.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}}</div>
     <button *ngIf="item.quantidade > 0" (click)="adicionarCesta(item)">Comprar</button>
     <div *ngIf="item.quantidade <= 0">Sem estoque</div>
 </div>
