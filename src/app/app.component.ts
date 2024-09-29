@@ -9,6 +9,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  menuAberto = false;
   title = 'Projeto_Loja';
   
   public IrCadastro() {
@@ -21,5 +22,9 @@ export class AppComponent {
 
   public IrVitrine() {
     window.location.href = "./vitrine"
+  }
+
+  public toggleMenu() {
+    this.menuAberto = !this.menuAberto;
   }
 }
