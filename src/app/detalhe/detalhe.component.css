@@ -67,6 +67,7 @@ img {
     text-align: left;
     width: 100%;
     color: greenyellow;
+    text-align: center;
 }
 
 button {
@@ -92,9 +93,5 @@ h4 {
 @media (orientation: portrait) {
     .container {
         max-width: 300px;
-    }
-
-    .valor-item {
-        text-align: center;
     }
 }

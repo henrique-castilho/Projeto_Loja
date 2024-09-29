@@ -1,11 +1,18 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<div class="icon-login">
-    <i class="fa-solid fa-user" (click)="IrCadastro()"></i>
+
+<div class="menu-sanduiche" (click)="toggleMenu()">
+    <i class="fa-solid fa-bars"></i>
 </div>
-<div class="icon-cesta">
-    <i class="fa-solid fa-cart-shopping" (click)="IrCesta()"></i>
+
+<div class="menu-itens" [class.open]="menuAberto">
+    <div class="icon-vitrine">
+        <i class="fa-solid fa-house" (click)="IrVitrine()"></i>
+    </div>
+    <div class="icon-login">
+        <i class="fa-solid fa-user" (click)="IrCadastro()"></i>
+    </div>
+    <div class="icon-cesta">
+        <i class="fa-solid fa-cart-shopping" (click)="IrCesta()"></i>
+    </div>
 </div>
-<div class="icon-vitrine">
-    <i class="fa-solid fa-house" (click)="IrVitrine()"></i>
-</div>
-<router-outlet />
+<router-outlet></router-outlet>
