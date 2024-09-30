@@ -22,10 +22,9 @@ export class LoginComponent {
       return;
     }
     if (this.obj.email === "admin@gmail.com" && this.obj.senha === "123456") {
-      localStorage.setItem("cadastro", JSON.stringify(this.obj));
-      window.location.href = "./cadastro";  
+      localStorage.setItem("cadastro", JSON.stringify(this.obj)); 
     } else {
-      this.mensagem = "Email ou senha inválidos !!!";
+      this.mensagem = "E-mail ou senha inválidos !!!";
       localStorage.removeItem("cadastro");
     }
   }
