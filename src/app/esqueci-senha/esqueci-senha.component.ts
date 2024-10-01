@@ -19,7 +19,7 @@ export class EsqueciSenhaComponent {
     if(this.obj.email === ""){
       this.mensagem = "Preencha o campo e-mail.";
     } else {
-      this.mensagem = "As instruções foram enviada para o email: " + this.obj.email;
+      this.mensagem = "As instruções foram enviada para o e-mail: " + this.obj.email;
     }
   }
 }
