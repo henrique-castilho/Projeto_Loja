@@ -2,6 +2,7 @@
     font-size: 20px;
     cursor: pointer;
     color: white;
+    margin-right: 20px;
 }
 
 .menu-sanduiche {
@@ -21,8 +22,8 @@
     right: 0;
 }
 
-.icon-login, .icon-cesta, .icon-vitrine {
-    margin-right: 20px;
+.menu-itens :hover {
+    color: #00b0ff;
 }
 
 .menu-itens.open {
@@ -34,10 +35,6 @@
     position: absolute;
     top: 50px;
     right: 20px;
-}
-
-.menu-itens {
-    display: flex;
 }
 
 @media (max-width: 768px) {
@@ -54,6 +51,12 @@
     .menu-itens.open .icon-vitrine {
         display: block;
         margin-bottom: 10px;
+    }
+
+    .menu-itens.open {
+        right: -10px;
+        align-items: center;
+        background: none;
     }
 }
     

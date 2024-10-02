@@ -34,4 +34,9 @@ export class LoginComponent {
     localStorage.setItem("cadastro", JSON.stringify(this.obj));
     window.location.href="./cadastro";
   }
+
+  PasswordVisivel: boolean = false;
+  public SenhaVisivel(){
+    this.PasswordVisivel = !this.PasswordVisivel;
+  }
 }

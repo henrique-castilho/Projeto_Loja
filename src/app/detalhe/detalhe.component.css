@@ -90,6 +90,11 @@ h4 {
     margin-top: 20px;
 }
 
+.SemEstoque {
+    color: red;
+    margin-top: 2%;
+}
+
 @media (orientation: portrait) {
     .container {
         max-width: 300px;
