@@ -38,7 +38,17 @@ export class CadastroComponent {
     } else {
         this.mensagem = "Preencha todos os campos";
     }
-}
+  }
+
+  PasswordVisivel: boolean = false;
+  public SenhaVisivel(){
+    this.PasswordVisivel = !this.PasswordVisivel;
+  }
+  
+  ConfirmaVisivel: boolean = false;
+  public ConfirmaSenhaVisivel(){
+    this.ConfirmaVisivel = !this.ConfirmaVisivel;
+  }
 
   public carregar(){
     let json = localStorage.getItem("cadastro");
