@@ -21,5 +21,5 @@
     <p>{{item.descricao}}</p>
     <div class="valor-item">R$ {{item.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}}</div>
     <button *ngIf="item.quantidade > 0" (click)="adicionarCesta(item)">Comprar</button>
-    <div *ngIf="item.quantidade <= 0">Sem estoque</div>
+    <div class="SemEstoque" *ngIf="item.quantidade <= 0">Sem estoque</div>
 </div>
