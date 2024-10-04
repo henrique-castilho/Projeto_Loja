@@ -1,0 +1,103 @@
+* {
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+.container-cesta {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px #00b0ff;
+    width: 1500px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table td, table th {
+    padding: 12px;
+    text-align: left;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+
+table tr:nth-child(even) {
+    background-color: #282727;
+}
+
+table tr:nth-child(odd) {
+    background-color: #282727;
+}
+
+table td button {
+    background-color: #ff4d4d;
+    color: #000000;
+    font-weight: bold;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 55px;
+}
+
+table td button:hover {
+    background-color: #ff1a1a;
+}
+
+button {
+    background-color: #00b0ff;
+    color: #000000;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px;
+    margin-top: 50px;
+    margin-left: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-right: 30px;
+}
+
+button:hover {
+    background-color: #0090e0;
+}
+
+button:disabled {
+    background-color: #555555;
+    cursor: not-allowed;
+}
+
+table td[colspan="4"] {
+    text-align: right;
+    font-weight: bold;
+    color: greenyellow;
+}
+
+.mensagem {
+    display: block;
+    text-align: center;
+    color: #00b0ff;
+    margin-top: 60px;
+    font-size: 20px;
+}
