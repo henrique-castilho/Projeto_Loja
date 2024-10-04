@@ -1,5 +1,10 @@
 <h1>Cesta de Compras</h1>
-<b>{{mensagem}} </b>
+<b class="mensagem">{{mensagem}} </b>
+
+<div class="button-container">
+    <button (click)="limparCesta()" [disabled]="cesta.itens.length === 0">Limpar</button>
+    <button *ngIf="cesta.itens.length > 0" (click)="finalizarCompra()">Finalizar</button>
+</div>
     
 <div class="container-cesta">
     <table border="2">
@@ -9,6 +14,7 @@
             <td>Quantidade</td>
             <td>Valor em R$</td>
             <td>Total por Item em R$</td>
+            <td>Deseja remover?</td>
         </tr>
         <tr *ngFor="let item of cesta.itens">
             <td>{{item.codigo}}</td>
@@ -24,6 +30,3 @@
         </tr>
     </table>
 </div>
-        
-<button (click)="limparCesta()">Limpar</button>
-<button *ngIf="cesta.itens.length > 0" (click)="finalizarCompra()">Finalizar</button>
