@@ -33,7 +33,7 @@
     padding: 5px 10px;
 }
 
-.container {
+.container-detalhe {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,7 +96,7 @@ h4 {
 }
 
 @media (orientation: portrait) {
-    .container {
+    .container-detalhe {
         max-width: 300px;
     }
 }

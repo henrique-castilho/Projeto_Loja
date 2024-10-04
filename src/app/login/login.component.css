@@ -4,7 +4,7 @@
     font-family: 'Arial', sans-serif;
 }
 
-.container {
+.container-login {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -145,7 +145,7 @@ h2 {
 }
 
 @media (orientation: portrait) {
-    .container {
+    .container-login {
         margin-left: 10%;
         width: 80%;
     }
