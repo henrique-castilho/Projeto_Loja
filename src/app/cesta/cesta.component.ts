@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Cesta } from '../model/cesta';
 import { Item } from '../model/item';
-import { Produto } from '../model/produto';
 
 @Component({
   selector: 'app-cesta',
