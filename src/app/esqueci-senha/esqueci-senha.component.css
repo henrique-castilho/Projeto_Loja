@@ -1,10 +1,9 @@
 * {
-    padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
 }
 
-.container {
+.container-esqueci {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,7 +93,7 @@ h2 {
 }
 
 @media (orientation: portrait) {
-    .container {
+    .container-esqueci {
         height: auto;
         margin-left: 9%;
         width: 82%;
