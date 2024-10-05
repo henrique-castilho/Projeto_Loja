@@ -20,13 +20,13 @@
             <td>{{item.codigo}}</td>
             <td>{{item.produto.nome}}</td>
             <td>{{item.quantidade}}</td>
-            <td>{{item.produto.valor}}</td>
-            <td>{{item.valor}}</td>
+            <td>{{item.produto.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}}</td>
+            <td>{{item.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}}</td>
             <td><button (click)="removerItem(item)">Remover</button></td>
         </tr>
         <tr>
             <td colspan="4">Total</td>
-            <td>R$ {{cesta.total}}</td>
+            <td>R$ {{cesta.total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}}</td>
         </tr>
     </table>
 </div>
