@@ -80,12 +80,24 @@ export class BuscaComponent {
     }
   ] 
 
+  public produtosFiltrados: Produto[] = [];
+
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.filtro = params['q'] || ''
+      this.filtrarProdutos()
     })
+  }
+
+  public filtrarProdutos() {
+    this.produtosFiltrados = this.lista.filter(produto => 
+      produto.nome.toLowerCase().includes(this.filtro.toLowerCase()) ||
+      produto.keywords.toLowerCase().includes(this.filtro.toLowerCase())
+    );
+    
+    this.mensagem = this.produtosFiltrados.length > 0 ? "Nossos Produtos" : "Nenhum Produto Encontrado";
   }
 
   public verDetalhe(item:Produto) {
