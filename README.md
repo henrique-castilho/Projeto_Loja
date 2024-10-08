@@ -1,27 +1,22 @@
-# ProjetoLoja
+# Zero Byte
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.4.
+### A Zero Byte é o nosso projeto de uma loja virtual de tecnologia, focada em peças de computador
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Como foi feito
 
-## Code scaffolding
+### As tecnologias usadas neste projeto foram: HTML, CSS e Angular (TypeScript)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Desenvolvedores envolvidos e seus GitHubs
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Henrique Castilho Pires de Carvalho [(henrique-castilho)](https://github.com/henrique-castilho)
 
-## Running unit tests
+### Leonardo Vivo Guerreiro [(leonardovivo)](https://github.com/leonardovivo)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Gabriel Dias Santana [(thediaax)](https://github.com/thediaax)
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Acesse a Zero Byte
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### [Zero Byte]()
