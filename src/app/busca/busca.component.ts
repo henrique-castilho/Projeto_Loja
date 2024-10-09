@@ -19,64 +19,157 @@ export class BuscaComponent {
   public filtro: string = ""
 
   public lista: Produto[] = [
-    {codigo:1, nome:"Gabinete Gamer SuperFrame Super X", 
-      descricao:"O gabinete gamer Super X da Superframe é uma opção de alto desempenho, com design Mid tower e painel frontal em vidro " + 
-      "temperado, permitindo exibir os componentes internos. Possui um design aerodinâmico que otimiza o fluxo de ar, mantendo o" +  
-      "sistema resfriado e garantindo o máximo desempenho. Ideal para quem busca qualidade e funcionalidade em um setup gamer.", 
+    {codigo:1, nome:"Gabinete Gamer Phoenix", 
+      descricao:"O Gabinete Gamer Phoenix combina design sofisticado com alta performance. Possui painel frontal em malha "+
+      "para ótimo fluxo de ar, iluminação LED azul para um visual moderno, e detalhes em cobre que adicionam um toque premium. "+
+      "Suporta placas-mãe ATX, micro-ATX e mini-ITX, com espaço para GPUs grandes e gestão eficiente de cabos.", 
       valor: 249.90, quantidade: 35, keywords: "Gabinete"
     },
-    {codigo:2, nome:"Monitor Gamer SuperFrame Precision, 23.6 Pol", 
-      descricao:"Os monitores SuperFrame oferecem excelente desempenho com gráficos fluidos e alta qualidade." + 
-      "Eles possuem tela curva, Full HD, painel VA, taxa de atualização de 180Hz, tempo de resposta de 1ms e tecnologia FreeSync, " +
-      "proporcionando uma experiência visual surpreendente.",
+    {codigo:2, nome:"Monitor Gamer Curvo NeoVision, 23.6 Pol", 
+      descricao:"O Monitor Gamer Curvo NeoVision oferece uma experiência visual envolvente e de alto desempenho. Com uma tela "+
+      "curva de última geração, ele proporciona um campo de visão expandido, garantindo uma imersão completa em jogos e conteúdo "+
+      "multimídia. Sua resolução ultra nítida permite ver cada detalhe com clareza, ideal para jogadores que exigem o máximo em "+
+      "qualidade gráfica.",
       valor: 699.90, quantidade: 25, keywords: "Monitor"
     },
-    {codigo:3, nome:"Teclado Gamer Mecânico Redragon Lakshmi",
-      descricao:"O Redragon LAKSHMI é um teclado projetado para performance profissional, evitando double clicks e oferecendo o dobro " + 
-      "da vida útil em comparação a teclados mecânicos convencionais. É a escolha ideal para quem busca um upgrade de qualidade para " + 
-      "seu setup.",
+    {codigo:3, nome:"Teclado Mecânico Gamer Thunderstrike",
+      descricao:"O Teclado Mecânico Gamer Thunderstrike combina design futurista e desempenho de ponta, proporcionando uma "+
+      "experiência de jogo precisa e responsiva. Com teclas mecânicas de alta durabilidade e retroiluminação LED personalizável, "+
+      "ele é perfeito para gamers que buscam velocidade e estilo em suas jogadas.",
       valor: 149.90, quantidade: 10, keywords: "Teclado"
     },
-    {codigo:4, nome:"Mouse Gamer Redragon Cobra V2 RGB", 
-      descricao:" O mouse gamer profissional Cobra V2 da Redragon possui 12400 DPI, 8 Botões Programáveis, Black, M711 V2." +
-      "Combina a popular iluminação Chroma Mark II com conforto e precisão. Oferece opções de personalização da iluminação através " + 
-      "do software Redragon,  permitindo que você ajuste o mouse ao seu estilo.",
-      valor: 99.90, quantidade: 20, keywords: "Mouse"
+    {codigo:4, nome:"Mouse Gamer RGB de Alta Precisão", 
+      descricao:" Eleve seu desempenho nos jogos com o Mouse Gamer RGB de alta precisão. Com um design moderno e ergonômico, ele "+ 
+      "oferece conforto máximo para longas sessões de uso. O acabamento em tom metálico azul brilhante e iluminação RGB personalizável "+
+      "garantem um visual arrojado que vai chamar atenção no setup.",
+      valor: 120.90, quantidade: 20, keywords: "Mouse"
     },
-    {codigo:5, nome:"Fonte MSI MAG A650BN", 
-      descricao:"A fonte de alimentação MAG A650BN é uma opção segura, confiável e eficiente para gamers. Com certificação 80 PLUS " + 
-      "Bronze, design de circuito DC para DC, trilho único de 12V, PFC ativo e ventoinha de baixo ruído, ela é ideal para quem " + 
-      "está começando. Após a instalação, proporciona um desempenho confiável sem necessidade de configurações adicionais.",
-      valor: 299.90, quantidade: 45, keywords: "Fonte"
+    {codigo:5, nome:"Memória RAM RGB DDR4 de Alta Performance 16GB", 
+      descricao:"A memória RAM RGB de alta performance combina estilo e potência, oferecendo alta velocidade e estabilidade para "+
+      "gamers e criadores de conteúdo. Com design futurista e iluminação RGB personalizável, ela conta com dissipador de calor "+
+      "avançado para manter a performance ideal. Compatível com as mais recentes plataformas, é a escolha perfeita para quem quer "+ 
+      "melhorar o desempenho e o visual do PC.",
+      valor: 299.90, quantidade: 45, keywords: "Memória Ram"
     },
-    {codigo:6, nome:"Placa Mãe Gigabyte B550M AORUS Elite", 
-      descricao:"AMD B550 Ultra Durable Motherboard com Pure Digital VRM Solution, PCIe 4.0 x16 Slot,"+ 
-      "Dual PCIe 4.0 / 3.0 M.2 Conectores, GIGABYTE 8118 Gaming LAN, Smart Fan 5 com FAN STOP, RGB FUSION 2.0, Q-Flash Plus",
-      valor: 819.99, quantidade: 55, keywords : "Placa Mae"  
+    {codigo:6, nome:"Placa-mãe de Alta Performance com Suporte Avançado", 
+      descricao:"Esta placa-mãe de alta performance é ideal para usuários exigentes, oferecendo compatibilidade com processadores "+
+      "de última geração e suporte para memória de alta capacidade. Com múltiplos slots de expansão, ela permite configurações "+
+      "robustas para gamers e profissionais. O design moderno, com detalhes metálicos e iluminação sutil, combina estilo e "+
+      "funcionalidade. Além disso, conta com um sistema de refrigeração eficiente, garantindo estabilidade e operação segura, "+ 
+      "mesmo em situações de uso intenso.",
+      valor: 819.99, quantidade: 55, keywords : "Placa Mãe"  
     },
-    {codigo:7, nome:"Processador AMD Ryzen 7 5700X3D",
-      descricao:"O Ryzen 7 5700X3D conta com 8 núcleos incríveis para quem quer apenas jogar. Os processadores AMD Ryzen série 5000 " + 
-      "capacitam a próxima geração de jogos exigentes," + "proporcionando experiências imersivas únicas e dominando qualquer tarefa " + 
-      "multithread como 3D e renderização de vídeo e compilação de software.",
-      valor: 1399.90, quantidade: 50, keywords: "Procesador"
+    {codigo:7, nome:"Placa de Vídeo de Alta Performance",
+      descricao:"Esta placa de vídeo de alto desempenho, com um design moderno e robusto, predominantemente prateada com detalhes em "+
+      "preto. A placa apresenta um dissipador de calor em alumínio e uma grande ventoinha para resfriamento eficiente, além de "+
+      "detalhes em LED que acentuam a estética futurista. Com conectores múltiplos para exibição de vídeo, como HDMI e DisplayPort, "+
+      "a placa oferece alta compatibilidade com monitores e dispositivos avançados. Ideal para gamers exigentes e profissionais que "+
+      "necessitam de desempenho gráfico de ponta.",
+      valor: 1399.90, quantidade: 50, keywords: "Placa de Vídeo"
     },
-    {codigo:8, nome:"Memória DDR4 Kingston Fury Beast, RGB, 16GB", 
-      descricao:"A Kingston FURY Beast DDR4 RGB oferece alta performance com velocidades de até 3733MHz0, luzes RGB, e está disponível " +
-      "em capacidades de modulo único de 8GB a 32GB e capacidade de kit  de 16GB a 128GB e latências CL15-19." + 
-      "Suporta overclock automático Plug and Play a 2666MHz, além de ser compatível com Intel XMP e AMD Ryzen™." +
-      "Possui dissipador de calor de perfil baixo e é testada em velocidade, com garantia vitalícia.",
-      valor:  289.99, quantidade: 40, keywords: "Memoria Ram"
+    {codigo:8, nome:"Fonte de Alimentação ATX 750W de Alta Eficiência",
+      descricao:"Esta fonte de alimentação oferece uma performance estável e confiável para alimentar seu sistema com segurança. "+
+      "Com um design robusto e uma ventoinha de alta capacidade, ela garante um resfriamento eficiente, ideal para configurações que"+
+      "demandam energia consistente e estável. Seus cabos reforçados proporcionam um fácil gerenciamento dentro do gabinete, "+
+      "oferecendo praticidade e organização.",
+      valor: 519.90, quantidade: 40, keywords: "Fonte de Alimentação"
     },
-    {codigo:9, nome:"SSD Kingston NV2, 500GB", descricao:"O NV2 PCIe 4.0 NVMe SSD da Kingston é um SSD de alto desempenho com "+ 
-      "controlador NVMe Gen 4x4, oferecendo velocidades de leitura/gravação de até 3.500/2.100MB/s. Ele possui baixo consumo de energia " + 
-      "e menor aquecimento, otimizando o desempenho do sistema sem comprometer o custo-benefício.",
-      valor: 288.90, quantidade: 30, keywords: "SSD"
+    {codigo:9, nome:"Gabinete Gamer Nexus Orion",
+      descricao:"O Gabinete Gamer Nexus Orion foi desenvolvido para proporcionar o equilíbrio perfeito entre estética e funcionalidade. "+
+      "Seu painel frontal conta com iluminação LED vermelha, trazendo um visual agressivo e futurista. A lateral em vidro temperado "+
+      "permite exibir o interior do setup, destacando cada detalhe da sua construção. Com excelente fluxo de ar e espaço interno "+
+      "otimizado, ele suporta placas-mãe ATX, micro-ATX e mini-ITX, além de oferecer compatibilidade com placas de vídeo de grande "+
+      "porte e uma eficiente gestão de cabos.",
+      valor: 279.00, quantidade: 30, keywords: "Gabinete"
     },
-    {codigo:10, nome:"Placa de Vídeo Gigabyte NVIDIA GeForce RTX 4060",
-      descricao:"A NVIDIA GeForce RTX 4060 oferece alto desempenho com suporte a ray tracing e gráficos com inteligência artificial, " + 
-      "ideal para gamers e criadores. Alimentada pela arquitetura NVIDIA Ada Lovelace, vem com até 8 GB de memória G6 ultrarrápida " +
-      "para entregar uma experiência otimizada em jogos e projetos criativos.",
-      valor: 1969.90, quantidade: 0, keywords: "Placa de Video"
+    {codigo:10, nome:"Processador AMD Ryzen 7 5700X 8-Core",
+      descricao:"O AMD Ryzen 7 5700X é um processador de desktop de alto desempenho, projetado para oferecer uma experiência "+
+      "superior em jogos e aplicações multitarefa. Com 8 núcleos e 16 threads, ele proporciona uma capacidade de processamento "+
+      "robusta, ideal para tarefas que exigem alta eficiência e velocidade. Este modelo é desbloqueado, permitindo overclocking "+
+      "para maximizar o desempenho, tornando-o uma escolha popular entre entusiastas de tecnologia e gamers. O design elegante e "+
+      "moderno do processador reflete a inovação e a qualidade da marca AMD, consolidando sua posição no mercado de hardware avançado.",
+      valor: 1128.40, quantidade: 87, keywords: "Processador" 
+    },
+    
+    {codigo:11, nome:"Teclado Mecânico Titan-X",
+      descricao:"Este teclado mecânico RGB de alto desempenho combina estilo e funcionalidade para proporcionar uma experiência de "+
+      "digitação e jogos de primeira linha. Com iluminação RGB totalmente personalizável, ele oferece um visual vibrante e imersivo, "+
+      "ideal para gamers e profissionais que desejam personalizar o ambiente de trabalho. Possui uma estrutura metálica durável, com"+
+      "acabamento premium. Sua conectividade é via Fio USB de alta qualidade para resposta rápida",
+      valor: 120.90, quantidade: 10, keywords: "Teclado"
+    },
+    {codigo:12, nome:"Mouse Gamer Falcon-X RGB Precision",
+      descricao:"Projetado para gamers exigentes, este mouse combina precisão extrema e conforto incomparável em um design futurista. "+
+      "Com sensor óptico de alta performance e ajuste de DPI, ele garante respostas rápidas e exatas, ideais para qualquer estilo de "+
+      "jogo. Sua construção ergonômica proporciona uma pegada firme e confortável, mesmo em longas sessões de uso, reduzindo a fadiga. "+
+      "O acabamento metálico sofisticado, com detalhes em tons de prata e preto, aliado à iluminação RGB totalmente customizável, "+
+      "cria um visual único e imponente no seu setup.",
+      valor: 99.00, quantidade: 27, keywords: "Mouse"
+    },
+    {codigo:13, nome:"Memória RAM DDR4 de Alta Desempenho 8gGB",
+      descricao:"Essa memória RAM combina um design moderno com iluminação RGB, ideal para quem busca não apenas potência, mas "+
+      "também um visual personalizado em seu setup. Com uma construção robusta e otimizada para dissipação de calor, ela garante "+
+      "um funcionamento estável e eficiente, mesmo em tarefas de alto desempenho. Perfeita para quem quer desempenho de ponta aliado "+
+      "à estética diferenciada.",
+      valor: 169.99, quantidade: 15, keywords: "Memória Ram"
+    },
+    {codigo:14, nome:"Placa-mãe Xtreme Power de Alta Performace",
+      descricao:"Desenvolvida para entusiastas e gamers exigentes, essa placa-mãe traz um design robusto e funcional, perfeita para "+
+      "quem busca um desempenho superior. Compatível com os processadores mais recentes, ela oferece múltiplos slots de RAM e uma "+
+      "ampla gama de portas de expansão, possibilitando upgrades poderosos e configurações personalizadas. Seu sistema avançado de "+
+      "dissipação de calor garante que o desempenho seja mantido em níveis máximos, mesmo durante overclocking e sessões de uso "+
+      "prolongado.",
+      valor: 755.90, quantidade:83, keywords: "Placa Mãe"
+    },
+    {codigo:15, nome:"Placa de Vídeo ThunderX 4K - Potência Gráfica de Última Geração",
+      descricao:"A ThunderX 4K foi desenvolvida para gamers e profissionais que precisam de gráficos de alta performance. Com uma "+
+      "arquitetura de última geração, essa placa oferece suporte a resoluções 4K e tecnologia de ray tracing, proporcionando uma "+
+      "experiência visual incrivelmente detalhada e imersiva, seja em jogos ou aplicações gráficas intensivas. Equipada com uma ampla "+
+      "variedade de conectores para monitores modernos, seu design avançado garante refrigeração eficiente, permitindo que o "+
+      "desempenho se mantenha constante, mesmo em longas sessões de uso intenso.",
+      valor: 1770.90, quantidade: 48, keywords: "Placa de Vídeo"
+    },
+    {codigo:16, nome:"SSD Velocity Pro 1TB - Alta Performance e Armazenamento Seguro",
+      descricao:"O SSD Velocity Pro 1TB oferece um desempenho superior, projetado para garantir velocidades de leitura de até "+
+      "3500 MB/s e gravação de até 3000 MB/s, otimizando a capacidade de resposta e eficiência do seu sistema. Com capacidade de "+
+      "1TB, é perfeito para armazenar grandes volumes de dados com segurança e confiabilidade. Seu design compacto e moderno "+
+      "facilita a instalação em computadores e servidores, e sua interface NVMe PCIe 3.0 x4 garante uma conexão rápida e estável. "+
+      "Ideal para gamers, profissionais e entusiastas que buscam a melhor performance e tecnologia de última geração.",
+      valor: 389.99, quantidade: 37, keywords: "SSD"
+    },
+    {codigo:17, nome:"Monitor Curvo UltraWide 34'' - 144Hz e Resolução QHD",
+      descricao:"Este monitor curvo de 34 polegadas oferece uma experiência imersiva e confortável, seja para trabalho ou "+
+      "entretenimento. Com uma resolução QHD (3440 x 1440 pixels) e taxa de atualização de 144Hz, proporciona imagens nítidas e "+
+      "cores vibrantes, otimizando a produtividade e aprimorando a qualidade visual. O design moderno e minimalista, com bordas "+
+      "ultrafinas, adiciona elegância ao ambiente e otimiza o espaço de trabalho. A curvatura suave da tela melhora o campo de "+
+      "visão, proporcionando uma visualização mais natural e reduzindo a fadiga ocular. Ideal para profissionais e gamers que "+
+      "buscam um desempenho visual superior e uma experiência envolvente.",
+      valor: 470.30, quantidade:61 , keywords: "Monitor"
+    },
+    {codigo:18, nome:"Processador Intel Core i5-11400F 12MB 4.4GHz LGA 1200 - BX8070811400F",
+      descricao:"O Intel Core i5-11400F é uma excelente escolha para quem busca desempenho otimizado em jogos, multitarefas e "+
+      "atividades que exigem processamento intensivo. Com 6 núcleos e 12 threads, ele oferece potência suficiente para rodar jogos "+
+      "de última geração, edição de vídeos e execução de múltiplos aplicativos simultaneamente. Sua velocidade de até 4.4GHz, aliada "+
+      "ao cache de 12MB, garante tempos de resposta rápidos e performance estável em tarefas exigentes.Ideal para PCs que utilizam "+
+      "placas gráficas dedicadas, o i5-11400F não possui gráficos integrados, o que torna este processador perfeito para gamers e "+
+      "criadores de conteúdo que desejam extrair o máximo de sua GPU dedicada. ",
+      valor: 659.00, quantidade: 49, keywords: "Processador"
+    },
+    {codigo:19, nome:"SSD Essential 500GB - Armazenamento Confiável e Prático",
+      descricao:"O SSD Essential 500GB combina um design elegante em metal escovado com um desempenho satisfatório, projetado para "+
+      "proporcionar armazenamento rápido e confiável. Com velocidades de leitura de até 500 MB/s e gravação de até 450 MB/s, ele é "+
+      "ideal para melhorar a velocidade de inicialização do sistema, carregar programas e transferir arquivos com agilidade. "+
+      "Disponível em várias capacidades, o SSD Essential é uma escolha acessível para quem busca uma solução de armazenamento eficaz "+
+      "e com bom custo-benefício, atendendo às necessidades diárias sem comprometer a confiabilidade.",
+      valor: 185.99, quantidade: 77, keywords: "SSD"
+    },
+    {codigo:20, nome:"Fonte de Alimentação ATX CV550 - Potência e Eficiência Compactas",
+      descricao:"A fonte de alimentação ATX CV550 de 550W é robusta e compacta, projetada para fornecer energia estável e eficiente "+
+      "a sistemas de alto desempenho. Com um design modular, ela facilita a instalação e o gerenciamento de cabos, promovendo uma "+
+      "experiência organizada e um fluxo de ar otimizado dentro do gabinete. Ideal para gamers e profissionais que exigem "+
+      "confiabilidade e eficiência em suas configurações, a CV550 garante que todos os componentes recebam a energia necessária para "+
+      "funcionar em seu máximo potencial, mesmo em situações de uso intensivo.",
+      valor: 305.90, quantidade: 0, keywords: "Fonte de Alimentação"
     }
   ] 
 
