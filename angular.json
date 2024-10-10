@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/projeto-loja",
+            "outputPath": "dist/Projeto_Loja",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -93,6 +93,13 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/Projeto_Loja/",
+            "repo": "https://github.com/henrique-castilho/Projeto_Loja.git"
           }
         }
       }
