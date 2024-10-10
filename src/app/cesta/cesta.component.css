@@ -190,8 +190,8 @@ table td[colspan="4"] {
 
     table td,
     table th {
-        font-size: 12px;
-        padding: 4px;
+        font-size: 10px;
+        padding: 1px;
     }
 
     table td.remove-column {
@@ -206,7 +206,7 @@ table td[colspan="4"] {
 
     button {
         padding: 4px 8px;
-        font-size: 11px;
+        font-size: 10px;
     }
 
     button.delete-btn {

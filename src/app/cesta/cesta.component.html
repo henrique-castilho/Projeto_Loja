@@ -22,7 +22,7 @@
         <td>{{item.quantidade}}</td>
         <td>R$ {{item.produto.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}}</td>
         <td>R$ {{item.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}}</td>
-        <td class="remove-column"><button (click)="removerItem(item)">Remover</button></td>
+        <td class="remove-column"><button (click)="removerItem(item)">X</button></td>
       </tr>
       <tr *ngIf="cesta.itens.length === 0">
         <td colspan="5">Nenhum item na cesta</td>
