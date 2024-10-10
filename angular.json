@@ -94,6 +94,13 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/Projeto_Loja/",
+            "repo": "https://github.com/henrique-castilho/Projeto_Loja.git"
+          }
         }
       }
     }
