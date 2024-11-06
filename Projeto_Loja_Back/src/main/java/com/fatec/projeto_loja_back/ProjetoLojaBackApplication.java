@@ -1,4 +1,4 @@
-package Loja.Projeto_Loja_Back;
+package com.fatec.projeto_loja_back;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
