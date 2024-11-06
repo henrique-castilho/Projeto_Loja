@@ -1,0 +1,142 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+.container-cadastro{
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.mensagem {
+    color: white;
+}
+
+.form-box {
+    background-color: #1e1e1e;
+    border-radius: 15px;
+    padding: 25px;
+    width: 600px;
+    max-width: 100%;
+    box-shadow: 0 0 20px #00b0ff;
+    text-align: center;   
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    grid-column-gap: 30px;
+    width: 100%;
+}
+
+h2 {
+    color: white;
+    margin-bottom: 2px;
+    margin-top: -10px;
+    grid-column: 1 / span 2;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.input-group input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #00b0ff;
+    outline: none;
+    padding: 12px 0;
+    width: 100%;
+    color: #fff;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    margin-top: 11px;
+    left: 0;
+    pointer-events: none;
+    transform: translateY(-50%);
+    color: #777;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label {
+    top: -10px;
+    font-size: 12px;
+    color: #00b0ff;
+}
+
+.input-group input:focus {
+    border-bottom: 2px solid #fff;
+}
+
+.btn {
+    background-color: #00b0ff;
+    color: #000000;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    grid-column: 1 / span 2;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #0090e0;
+}
+
+.login-link {
+    margin-top: 15px;
+    font-size: 14px;
+    grid-column: 1 / span 2;
+    text-align: center;
+    color: white ;
+}
+
+.login-link a {
+    color: #00b0ff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+#eyeIcon {
+    color: white;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.toggle-password i {
+    font-size: 20px;
+    color: #333;
+}
+
+@media (orientation: portrait) {
+    .mensagem {
+        font-size: 15px;
+    }   
+}
