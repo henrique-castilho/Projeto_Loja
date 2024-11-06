@@ -1,16 +1,16 @@
 package com.fatec.projeto_loja_back.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+// import jakarta.persistence.Entity;
+// import jakarta.persistence.Id;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+// @Entity
 public class Cesta {
-    @Id
+    // @Id
     private int codigo;
-    private Cliente cliente;
+    private Cliente cliente = new Cliente();
     private double total;
     private List<Item> itens = new ArrayList<>();
 
@@ -49,7 +49,5 @@ public class Cesta {
     public void setItens(List<Item> itens) {
         this.itens = itens;
     }
-
-
 }
 

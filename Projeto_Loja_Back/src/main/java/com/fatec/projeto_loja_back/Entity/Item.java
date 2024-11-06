@@ -1,15 +1,16 @@
 package com.fatec.projeto_loja_back.Entity;
 
-import jakarta.persistence.*;
+// import jakarta.persistence.Entity;
+// import jakarta.persistence.Id;
 
-@Entity
+// @Entity
 public class Item {
-    @Id
+    // @Id
     private int codigo;
-    private Produto produto;
+    private Produto produto = new Produto();
     private int quantidade;
     private double valor;
-
+    
 
     public Item(int codigo, Produto produto, int quantidade, double valor) {
         this.codigo = codigo;
