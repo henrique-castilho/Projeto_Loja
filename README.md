@@ -19,4 +19,4 @@
 
 ## Acesse a Zero Byte
 
-### [Zero Byte](https://henrique-castilho.github.io/Projeto_Loja/)
+### [Zero Byte](https://projeto-loja-tau-ten.vercel.app/)
