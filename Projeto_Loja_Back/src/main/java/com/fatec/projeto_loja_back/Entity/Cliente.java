@@ -64,6 +64,22 @@ public class Cliente {
         this.telefone = telefone;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+    
     public String getLogradouro() {
         return logradouro;
     }
@@ -94,18 +110,6 @@ public class Cliente {
 
     public void setUf(String uf) {
         this.uf = uf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getRg() {
-        return rg;
-    }
-
-    public void setRg(String rg) {
-        this.rg = rg;
     }
 
     public String getComplemento() {

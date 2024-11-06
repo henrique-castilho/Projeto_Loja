@@ -14,7 +14,7 @@ public class Produto {
     private String descricao;
     private double valor;
     private int quantidade;
-    private String keywords;
+    private String keywords;  //Ver Como colocar uma lista
     private int destaque = 0;
 
     public Produto(){}
