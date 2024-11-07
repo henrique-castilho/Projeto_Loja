@@ -11,7 +11,7 @@ import { Cesta } from '../model/cesta';
   templateUrl: './vitrine.component.html',
   styleUrl: './vitrine.component.css'
 })
-
+//VER SE AS keywords vão ficar com lista ou n
 export class VitrineComponent {
   public mensagem: string = "Nossos Produtos";
   public lista: Produto[] = [
@@ -20,7 +20,8 @@ export class VitrineComponent {
       "para ótimo fluxo de ar, iluminação LED azul para um visual moderno, e detalhes em cobre que adicionam um toque premium. "+
       "Suporta placas-mãe ATX, micro-ATX e mini-ITX, com espaço para GPUs grandes e gestão eficiente de cabos.", 
       valor: 249.90, quantidade: 35, 
-      keywords: ["Gabinete Gamer", "LED", "RGB", "Sofisticado"]
+      keywords: ["Gabinete Gamer", "LED", "RGB", "Sofisticado"],
+      destaque: 2
     },
     {codigo:2, nome:"Monitor Gamer Curvo NeoVision, 23.6 Pol", 
       descricao:"O Monitor Gamer Curvo NeoVision oferece uma experiência visual envolvente e de alto desempenho. Com uma tela "+
@@ -28,21 +29,24 @@ export class VitrineComponent {
       "multimídia. Sua resolução ultra nítida permite ver cada detalhe com clareza, ideal para jogadores que exigem o máximo em "+
       "qualidade gráfica.",
       valor: 699.90, quantidade: 25, 
-      keywords: ["Monitor Curvo", "Monitor Gamer", "Pol", "23.6 Polegada"]
+      keywords: ["Monitor Curvo", "Monitor Gamer", "Pol", "23.6 Polegada"],
+      destaque: 2
     },
     {codigo:3, nome:"Teclado Mecânico Gamer Thunderstrike",
       descricao:"O Teclado Mecânico Gamer Thunderstrike combina design futurista e desempenho de ponta, proporcionando uma "+
       "experiência de jogo precisa e responsiva. Com teclas mecânicas de alta durabilidade e retroiluminação LED personalizável, "+
       "ele é perfeito para gamers que buscam velocidade e estilo em suas jogadas.",
       valor: 149.90, quantidade: 10, 
-      keywords: ["Teclado Gamer", "Teclado Mecânico", "Teclado Mecanico", "LED", "RGB"]
+      keywords: ["Teclado Gamer", "Teclado Mecânico", "Teclado Mecanico", "LED", "RGB"],
+      destaque: 2
     },
     {codigo:4, nome:"Mouse Gamer RGB de Alta Precisão", 
       descricao:" Eleve seu desempenho nos jogos com o Mouse Gamer RGB de alta precisão. Com um design moderno e ergonômico, ele "+ 
       "oferece conforto máximo para longas sessões de uso. O acabamento em tom metálico azul brilhante e iluminação RGB personalizável "+
       "garantem um visual arrojado que vai chamar atenção no setup.",
       valor: 120.90, quantidade: 20, 
-      keywords: ["Mouse Gamer", "Ergônomico", "Ergonomico", "Alta Precisão", "Alta Prcisao", "LED", "RGB"]
+      keywords: ["Mouse Gamer", "Ergônomico", "Ergonomico", "Alta Precisão", "Alta Prcisao", "LED", "RGB"],
+      destaque: 2
     },
     {codigo:5, nome:"Memória RAM RGB DDR4 de Alta Performance 16GB", 
       descricao:"A memória RAM RGB de alta performance combina estilo e potência, oferecendo alta velocidade e estabilidade para "+
@@ -50,7 +54,8 @@ export class VitrineComponent {
       "avançado para manter a performance ideal. Compatível com as mais recentes plataformas, é a escolha perfeita para quem quer "+ 
       "melhorar o desempenho e o visual do PC.",
       valor: 299.90, quantidade: 45, 
-      keywords: ["Memória Ram", "Memoria Ram", "16GB", "DDR4", "Alta Performace", "LED", "RGB"]
+      keywords: ["Memória Ram", "Memoria Ram", "16GB", "DDR4", "Alta Performace", "LED", "RGB"],
+      destaque: 2
     },
     {codigo:6, nome:"Placa-mãe de Alta Performance com Suporte Avançado", 
       descricao:"Esta placa-mãe de alta performance é ideal para usuários exigentes, oferecendo compatibilidade com processadores "+
@@ -59,7 +64,8 @@ export class VitrineComponent {
       "funcionalidade. Além disso, conta com um sistema de refrigeração eficiente, garantindo estabilidade e operação segura, "+ 
       "mesmo em situações de uso intenso.",
       valor: 819.99, quantidade: 55, 
-      keywords : ["Placa Mãe", "Placa Mae", "Placa-Mãe", "Placa-Mae","Alta Performace"]  
+      keywords : ["Placa Mãe", "Placa Mae", "Placa-Mãe", "Placa-Mae","Alta Performace"],
+      destaque: 2
     },
     {codigo:7, nome:"Placa de Vídeo de Alta Performance",
       descricao:"Esta placa de vídeo de alto desempenho, com um design moderno e robusto, predominantemente prateada com detalhes em "+
@@ -68,7 +74,8 @@ export class VitrineComponent {
       "a placa oferece alta compatibilidade com monitores e dispositivos avançados. Ideal para gamers exigentes e profissionais que "+
       "necessitam de desempenho gráfico de ponta.",
       valor: 1399.90, quantidade: 50, 
-      keywords: ["Placa de Vídeo","Placa de Video", "Alta Performace", "Alto Desempenho", "LED", "RGB"]
+      keywords: ["Placa de Vídeo","Placa de Video", "Alta Performace", "Alto Desempenho", "LED", "RGB"],
+      destaque: 2
     },
     {codigo:8, nome:"Fonte de Alimentação ATX 750W de Alta Eficiência",
       descricao:"Esta fonte de alimentação oferece uma performance estável e confiável para alimentar seu sistema com segurança. "+
@@ -76,7 +83,8 @@ export class VitrineComponent {
       "demandam energia consistente e estável. Seus cabos reforçados proporcionam um fácil gerenciamento dentro do gabinete, "+
       "oferecendo praticidade e organização.",
       valor: 519.90, quantidade: 40,
-      keywords: ["Fonte de Alimentação", "Fonte de Alimentaçao", "Fonte de Alimentacão", "Fonte de Alimentacao","ATX", "750W", "Alta Eficiência", "Alta Eficiencia"]
+      keywords: ["Fonte de Alimentação", "Fonte de Alimentaçao", "Fonte de Alimentacão", "Fonte de Alimentacao","ATX", "750W", "Alta Eficiência", "Alta Eficiencia"],
+      destaque: 2
     },
     {codigo:9, nome:"Gabinete Gamer Nexus Orion",
       descricao:"O Gabinete Gamer Nexus Orion foi desenvolvido para proporcionar o equilíbrio perfeito entre estética e funcionalidade. "+
@@ -85,7 +93,8 @@ export class VitrineComponent {
       "otimizado, ele suporta placas-mãe ATX, micro-ATX e mini-ITX, além de oferecer compatibilidade com placas de vídeo de grande "+
       "porte e uma eficiente gestão de cabos.",
       valor: 279.00, quantidade: 30, 
-      keywords: ["Gabinete Gamer", "LED", "RGB"]
+      keywords: ["Gabinete Gamer", "LED", "RGB"],
+      destaque: 2
     },
     {codigo:10, nome:"Processador AMD Ryzen 7 5700X 8-Core",
       descricao:"O AMD Ryzen 7 5700X é um processador de desktop de alto desempenho, projetado para oferecer uma experiência "+
@@ -94,7 +103,8 @@ export class VitrineComponent {
       "para maximizar o desempenho, tornando-o uma escolha popular entre entusiastas de tecnologia e gamers. O design elegante e "+
       "moderno do processador reflete a inovação e a qualidade da marca AMD, consolidando sua posição no mercado de hardware avançado.",
       valor: 1128.40, quantidade: 87, 
-      keywords: ["Processador AMD RYZEN 7 5700X 8-Core", "Alto Desempenho", "Alta Performace"] 
+      keywords: ["Processador AMD RYZEN 7 5700X 8-Core", "Alto Desempenho", "Alta Performace"],
+      destaque: 2
     },
     {codigo:11, nome:"Teclado Mecânico Titan-X",
       descricao:"Este teclado mecânico RGB de alto desempenho combina estilo e funcionalidade para proporcionar uma experiência de "+
@@ -102,7 +112,8 @@ export class VitrineComponent {
       "ideal para gamers e profissionais que desejam personalizar o ambiente de trabalho. Possui uma estrutura metálica durável, com"+
       "acabamento premium. Sua conectividade é via Fio USB de alta qualidade para resposta rápida",
       valor: 120.90, quantidade: 10, 
-      keywords: ["Teclado Mecânico", "Teclado Mecanico", "LED", "RGB"]
+      keywords: ["Teclado Mecânico", "Teclado Mecanico", "LED", "RGB"],
+      destaque: 2
     },
     {codigo:12, nome:"Mouse Gamer Falcon-X RGB Precision",
       descricao:"Projetado para gamers exigentes, este mouse combina precisão extrema e conforto incomparável em um design futurista. "+
@@ -111,7 +122,8 @@ export class VitrineComponent {
       "O acabamento metálico sofisticado, com detalhes em tons de prata e preto, aliado à iluminação RGB totalmente customizável, "+
       "cria um visual único e imponente no seu setup.",
       valor: 99.00, quantidade: 27, 
-      keywords: ["Mouse Gamer", "Ergônomico", "Ergonomico", "Led", "RGB"]
+      keywords: ["Mouse Gamer", "Ergônomico", "Ergonomico", "Led", "RGB"],
+      destaque: 2
     },
     {codigo:13, nome:"Memória RAM DDR4 de Alto Desempenho 8gGB",
       descricao:"Essa memória RAM combina um design moderno com iluminação RGB, ideal para quem busca não apenas potência, mas "+
@@ -119,7 +131,8 @@ export class VitrineComponent {
       "um funcionamento estável e eficiente, mesmo em tarefas de alto desempenho. Perfeita para quem quer desempenho de ponta aliado "+
       "à estética diferenciada.",
       valor: 169.99, quantidade: 15, 
-      keywords: ["Memória Ram", "Memoria Ram", "Alto Desempenho", "Alta Performace", "8GB", "DDR4", "LED", "RGB"]
+      keywords: ["Memória Ram", "Memoria Ram", "Alto Desempenho", "Alta Performace", "8GB", "DDR4", "LED", "RGB"],
+      destaque: 2
     },
     {codigo:14, nome:"Placa-mãe Xtreme Power de Alta Performace",
       descricao:"Desenvolvida para entusiastas e gamers exigentes, essa placa-mãe traz um design robusto e funcional, perfeita para "+
@@ -128,7 +141,8 @@ export class VitrineComponent {
       "dissipação de calor garante que o desempenho seja mantido em níveis máximos, mesmo durante overclocking e sessões de uso "+
       "prolongado.",
       valor: 755.90, quantidade:83, 
-      keywords: ["Placa Mãe", "Placa Mae", "Placa-Mãe", "Placa-Mae","Alta Performace"]        
+      keywords: ["Placa Mãe", "Placa Mae", "Placa-Mãe", "Placa-Mae","Alta Performace"],
+      destaque: 2
     },
     {codigo:15, nome:"Placa de Vídeo ThunderX 4K - Potência Gráfica de Última Geração",
       descricao:"A ThunderX 4K foi desenvolvida para gamers e profissionais que precisam de gráficos de alta performance. Com uma "+
@@ -137,7 +151,8 @@ export class VitrineComponent {
       "variedade de conectores para monitores modernos, seu design avançado garante refrigeração eficiente, permitindo que o "+
       "desempenho se mantenha constante, mesmo em longas sessões de uso intenso.",
       valor: 1770.90, quantidade: 48, 
-      keywords: ["Placa de Vídeo", "Placa de Video", "Alta Performace", "Alto Desempenho", "4K"]
+      keywords: ["Placa de Vídeo", "Placa de Video", "Alta Performace", "Alto Desempenho", "4K"],
+      destaque: 2
     },
     {codigo:16, nome:"SSD Velocity Pro 1TB - Alta Performance e Armazenamento Seguro",
       descricao:"O SSD Velocity Pro 1TB oferece um desempenho superior, projetado para garantir velocidades de leitura de até "+
@@ -146,7 +161,8 @@ export class VitrineComponent {
       "facilita a instalação em computadores e servidores, e sua interface NVMe PCIe 3.0 x4 garante uma conexão rápida e estável. "+
       "Ideal para gamers, profissionais e entusiastas que buscam a melhor performance e tecnologia de última geração.",
       valor: 389.99, quantidade: 37, 
-      keywords: ["SSD", "1TB" , "Alta Performace", "Armazenamento Seguro", "Armazenamento Confiável", "Armazenamento Confiavel", "Armazenamento Prático", "Armazenamento Pratico"]
+      keywords: ["SSD", "1TB" , "Alta Performace", "Armazenamento Seguro", "Armazenamento Confiável", "Armazenamento Confiavel", "Armazenamento Prático", "Armazenamento Pratico"],
+      destaque: 2
     },
     {codigo:17, nome:"Monitor Curvo UltraWide 34'' - 144Hz e Resolução QHD",
       descricao:"Este monitor curvo de 34 polegadas oferece uma experiência imersiva e confortável, seja para trabalho ou "+
@@ -156,7 +172,8 @@ export class VitrineComponent {
       "visão, proporcionando uma visualização mais natural e reduzindo a fadiga ocular. Ideal para profissionais e gamers que "+
       "buscam um desempenho visual superior e uma experiência envolvente.",
       valor: 470.30, quantidade:61 ,
-      keywords: ["Monitor", "Monitor Curvo", "Pol", "34 Polegada"]
+      keywords: ["Monitor", "Monitor Curvo", "Pol", "34 Polegada"],
+      destaque: 2
     },
     {codigo:18, nome:"Processador Intel Core i5-11400F 12MB 4.4GHz LGA 1200 - BX8070811400F",
       descricao:"O Intel Core i5-11400F é uma excelente escolha para quem busca desempenho otimizado em jogos, multitarefas e "+
@@ -166,7 +183,8 @@ export class VitrineComponent {
       "placas gráficas dedicadas, o i5-11400F não possui gráficos integrados, o que torna este processador perfeito para gamers e "+
       "criadores de conteúdo que desejam extrair o máximo de sua GPU dedicada. ",
       valor: 659.00, quantidade: 49, 
-      keywords: ["Processador Intel Core i5-11400F 12MB 4.4GHz LGA 1200, Alto Desempenho, Alta Performace"] 
+      keywords: ["Processador Intel Core i5-11400F 12MB 4.4GHz LGA 1200, Alto Desempenho, Alta Performace"],
+      destaque: 2
     },
     {codigo:19, nome:"SSD Essential 500GB - Armazenamento Confiável e Prático",
       descricao:"O SSD Essential 500GB combina um design elegante em metal escovado com um desempenho satisfatório, projetado para "+
@@ -175,7 +193,8 @@ export class VitrineComponent {
       "Disponível em várias capacidades, o SSD Essential é uma escolha acessível para quem busca uma solução de armazenamento eficaz "+
       "e com bom custo-benefício, atendendo às necessidades diárias sem comprometer a confiabilidade.",
       valor: 185.99, quantidade: 77,
-      keywords: ["SSD", "500GB", "Alta Performace", "Armazenamento Seguro", "Armazenamento Confiável", "Armazenamento Confiavel", "Armazenamento Prático", "Armazenamento Pratico"]
+      keywords: ["SSD", "500GB", "Alta Performace", "Armazenamento Seguro", "Armazenamento Confiável", "Armazenamento Confiavel", "Armazenamento Prático", "Armazenamento Pratico"],
+      destaque: 2
     },
     {codigo:20, nome:"Fonte de Alimentação ATX CV550 - Potência e Eficiência Compactas",
       descricao:"A fonte de alimentação ATX CV550 de 550W é robusta e compacta, projetada para fornecer energia estável e eficiente "+
@@ -184,7 +203,8 @@ export class VitrineComponent {
       "confiabilidade e eficiência em suas configurações, a CV550 garante que todos os componentes recebam a energia necessária para "+
       "funcionar em seu máximo potencial, mesmo em situações de uso intensivo.",
       valor: 305.90, quantidade: 0,
-      keywords: ["Fonte de Alimentação", "Fonte de Alimentaçao", "Fonte de Alimentacão", "Fonte de Alimentacao", "ATX", "550W",  "Alta Eficiência", "Alta Eficiencia"]
+      keywords: ["Fonte de Alimentação", "Fonte de Alimentaçao", "Fonte de Alimentacão", "Fonte de Alimentacao", "ATX", "550W",  "Alta Eficiência", "Alta Eficiencia"],
+      destaque: 2
     }
   ]
 
