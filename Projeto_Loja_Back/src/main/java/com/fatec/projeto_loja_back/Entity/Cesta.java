@@ -1,17 +1,19 @@
 package com.fatec.projeto_loja_back.Entity;
 
-// import jakarta.persistence.Entity;
-// import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-// @Entity
+@Entity
 public class Cesta {
-    // @Id
+    @Id
     private int codigo;
+    @ManyToOne
+    @JoinColumn(name = "cliente_codigo")
     private Cliente cliente = new Cliente();
     private double total;
+    @OneToMany(mappedBy = "cesta", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Item> itens = new ArrayList<>();
 
 
@@ -28,24 +30,31 @@ public class Cesta {
     public int getCodigo() {
         return codigo;
     }
+
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
+
     public Cliente getCliente() {
         return cliente;
     }
+
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
     public double getTotal() {
         return total;
     }
+
     public void setTotal(double total) {
         this.total = total;
     }
+
     public List<Item> getItens() {
         return itens;
     }
+
     public void setItens(List<Item> itens) {
         this.itens = itens;
     }
