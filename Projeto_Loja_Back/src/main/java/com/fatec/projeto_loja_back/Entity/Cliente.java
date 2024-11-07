@@ -21,6 +21,7 @@ public class Cliente {
     private String cidade;
     private String uf;
     private String complemento;
+    private String confirmarSenha;
 
     public Cliente(){}
 
@@ -118,5 +119,13 @@ public class Cliente {
 
     public void setComplemento(String complemento) {
         this.complemento = complemento;
+    }
+
+    public String getConfirmarSenha() {
+        return confirmarSenha;
+    }
+
+    public void setConfirmarSenha(String confirmarSenha) {
+        this.confirmarSenha = confirmarSenha;
     }
 }
