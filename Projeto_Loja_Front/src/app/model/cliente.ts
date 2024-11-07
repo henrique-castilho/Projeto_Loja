@@ -10,5 +10,6 @@ export class Cliente {
     public cidade: string = "";
     public complemento: string = "";
     public senha: string = "";
+    public uf: string = "";
     public confirmarSenha: string ="";
 }

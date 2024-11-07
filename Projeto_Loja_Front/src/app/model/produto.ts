@@ -4,5 +4,6 @@ export class Produto {
     public descricao: string = "";
     public valor: number = 0;
     public quantidade: number = 0;
-    public keywords: string[] = [];
+    public keywords: string[] = []; //ver se vai deixer com lista
+    public destaque: number = 0;
 }
