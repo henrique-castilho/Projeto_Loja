@@ -23,6 +23,10 @@ public class ClienteController {
 
     @PostMapping("/api/cliente")
     public String gravar(@RequestBody Cliente obj) {
+        Optional<Cliente> clienteExistente = bd.findByEmailCpfRg(obj.getEmail(), obj.getCpf(), obj.getRg());
+        if (clienteExistente.isPresent()) {
+            return "Erro: Cliente já cadastrado com as mesmas informações";
+        }
         bd.save(obj);
         return "O cliente " + obj.getNome() + "foi salvo corretamente";
     }
