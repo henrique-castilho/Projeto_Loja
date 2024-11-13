@@ -26,7 +26,6 @@ public class Cesta {
 
     public Cesta(){}
 
-
     public int getCodigo() {
         return codigo;
     }
