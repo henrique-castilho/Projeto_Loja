@@ -17,7 +17,6 @@ public class Item {
     private double valor;
 
     
-
     public Item(int codigo, Produto produto, int quantidade, double valor) {
         this.codigo = codigo;
         this.produto = produto;
