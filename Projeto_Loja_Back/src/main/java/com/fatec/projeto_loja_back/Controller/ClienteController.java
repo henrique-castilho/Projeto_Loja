@@ -18,21 +18,53 @@ import com.fatec.projeto_loja_back.Repository.ClienteRepository;
 
 @RestController
 public class ClienteController {
+
+    private boolean camposVazios(Cliente obj) {
+        return obj.getNome().isEmpty() || obj.getEmail().isEmpty() || obj.getSenha().isEmpty() || obj.getTelefone().isEmpty() || 
+               obj.getCpf().isEmpty() || obj.getRg().isEmpty() || obj.getLogradouro().isEmpty() || obj.getCep().isEmpty() || 
+               obj.getCidade().isEmpty() || obj.getUf().isEmpty() || obj.getConfirmarSenha().isEmpty();
+    }
+
+    private boolean senhasIguais(Cliente obj) {
+        return obj.getSenha().equals(obj.getConfirmarSenha());
+    }
+
+
     @Autowired
     ClienteRepository bd;
 
     @PostMapping("/api/cliente")
     public String gravar(@RequestBody Cliente obj) {
+        if (camposVazios(obj)) {
+            return "Erro: Todo os campos devem ser preenchidos";
+        }
+
+        if (!senhasIguais(obj)) {
+            return "Erro: A senha e a confirmação da senha devem ser iguais.";
+        }
+
         Optional<Cliente> clienteExistente = bd.findByEmailCpfRg(obj.getEmail(), obj.getCpf(), obj.getRg());
         if (clienteExistente.isPresent()) {
             return "Erro: Cliente já cadastrado com as mesmas informações";
         }
+
         bd.save(obj);
         return "O cliente " + obj.getNome() + "foi salvo corretamente";
     }
 
      @PutMapping("/api/cliente")
     public String alterar(@RequestBody Cliente obj){
+        if (camposVazios(obj)) {
+            return "Erro: Todo os campos devem ser preenchidos para realizar a alteração";
+        }
+        if (!senhasIguais(obj)) {
+            return "Erro: A senha e a confirmação da senha devem ser iguais.";
+        }
+
+        Optional<Cliente> clienteExistente = bd.findById(obj.getCodigo());
+        if (!clienteExistente.isPresent()) {
+            return "Erro: Cliente não encontrado para alteração.";
+        }
         bd.save(obj);
         return "O cliente " + obj.getNome() + " foi alterado corretamente";
     }
