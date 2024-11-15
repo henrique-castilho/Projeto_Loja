@@ -1,9 +1,11 @@
 package com.fatec.projeto_loja_back.Controller;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fatec.projeto_loja_back.Entity.Cliente;
 import com.fatec.projeto_loja_back.Repository.ClienteRepository;
 
-
+@CrossOrigin (origins = "*")
 @RestController
 public class ClienteController {
 
@@ -34,39 +36,39 @@ public class ClienteController {
     ClienteRepository bd;
 
     @PostMapping("/api/cliente")
-    public String gravar(@RequestBody Cliente obj) {
+    public Map<String, String> gravar(@RequestBody Cliente obj) {
         if (camposVazios(obj)) {
-            return "Erro: Todo os campos devem ser preenchidos";
+            return Map.of("mensagem","Erro: Todo os campos devem ser preenchidos");
         }
 
         if (!senhasIguais(obj)) {
-            return "Erro: A senha e a confirmação da senha devem ser iguais.";
+            return Map.of("mensagem","Erro: A senha e a confirmação da senha devem ser iguais.");
         }
 
         Optional<Cliente> clienteExistente = bd.findByEmailCpfRg(obj.getEmail(), obj.getCpf(), obj.getRg());
         if (clienteExistente.isPresent()) {
-            return "Erro: Cliente já cadastrado com as mesmas informações";
+            return Map.of("mensagem","Erro: Cliente já cadastrado com as mesmas informações");
         }
 
         bd.save(obj);
-        return "O cliente " + obj.getNome() + "foi salvo corretamente";
+        return Map.of("mensagem", "O cliente " + obj.getNome() + "foi salvo corretamente");
     }
 
      @PutMapping("/api/cliente")
-    public String alterar(@RequestBody Cliente obj){
+    public Map<String, String> alterar(@RequestBody Cliente obj){
         if (camposVazios(obj)) {
-            return "Erro: Todo os campos devem ser preenchidos para realizar a alteração";
+            return Map.of("mensagem","Erro: Todo os campos devem ser preenchidos para realizar a alteração");
         }
         if (!senhasIguais(obj)) {
-            return "Erro: A senha e a confirmação da senha devem ser iguais.";
+            return Map.of("mensagem","Erro: A senha e a confirmação da senha devem ser iguais.");
         }
 
         Optional<Cliente> clienteExistente = bd.findById(obj.getCodigo());
         if (!clienteExistente.isPresent()) {
-            return "Erro: Cliente não encontrado para alteração.";
+            return Map.of("mensagem","Erro: Cliente não encontrado para alteração.");
         }
         bd.save(obj);
-        return "O cliente " + obj.getNome() + " foi alterado corretamente";
+        return Map.of("mensagem", "O cliente " + obj.getNome() + " foi alterado corretamente");
     }
 
     @GetMapping("/api/cliente/{codigo}")
@@ -80,12 +82,12 @@ public class ClienteController {
     }
 
     @DeleteMapping("/api/cliente/{codigo}")
-    public String remover(@PathVariable int codigo) {
+    public Map<String, String> remover(@PathVariable int codigo) {
         if (bd.existsById(codigo)) {
             bd.deleteById(codigo);
-            return "Registro " + codigo + " removido com sucesso!";
+            return null;
         } else {
-            return "Cliente não encontrado";
+            return Map.of("mensagem", "Cliente não encontrado");
         }
     }
 
