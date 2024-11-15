@@ -17,20 +17,48 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fatec.projeto_loja_back.Entity.Produto;
 import com.fatec.projeto_loja_back.Repository.ProdutoRepository;
 
-@CrossOrigin()
+@CrossOrigin(origins = "*")
 @RestController
 public class ProdutoController {
+    public boolean camposVazios(Produto obj) {
+        if (obj.getNome() == null || obj.getNome().trim().isEmpty()) {
+            return true;
+        }
+        if (obj.getDescricao() == null || obj.getDescricao().trim().isEmpty()) {
+            return true;
+        }
+        if (obj.getKeywords() == null || obj.getKeywords().trim().isEmpty()) {
+            return true;
+        }
+        if (obj.getValor() < 0) {
+            return true;
+        }
+        if (obj.getQuantidade() < 0) {
+            return true;
+        }
+        if (obj.getDestaque() < 0) {
+            return true;
+        }
+        return false;
+    }
+    
     @Autowired
     ProdutoRepository bd;
 
     @PostMapping("/api/produto")
     public Map<String, String> gravar(@RequestBody Produto obj) {
+        if (camposVazios(obj)) {
+            return Map.of("mensagem","Erro: Todo os campos devem ser preenchidos e com valores válidos");
+        }
         bd.save(obj);
         return Map.of("mensagem", "O produto " + obj.getNome() + "foi salvo corretamente");
     }
 
     @PutMapping("/api/produto")
     public Map<String, String> alterar(@RequestBody Produto obj) {
+        if (camposVazios(obj)) {
+            return Map.of("mensagem","Erro: Todo os campos devem ser preenchidos e com valores válidos");
+        }
         bd.save(obj);
         return Map.of("mensagem","O produto " + obj.getNome() + " foi alterado corretamente");
     }
