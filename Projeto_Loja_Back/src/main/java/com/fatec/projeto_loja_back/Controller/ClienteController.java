@@ -31,49 +31,48 @@ public class ClienteController {
         return obj.getSenha().equals(obj.getConfirmarSenha());
     }
 
-
     @Autowired
     ClienteRepository bd;
 
     @PostMapping("/api/cliente")
     public Map<String, String> gravar(@RequestBody Cliente obj) {
         if (camposVazios(obj)) {
-            return Map.of("mensagem","Erro: Todo os campos devem ser preenchidos");
+            return Map.of("mensagem","Todo os campos devem ser preenchidos");
         }
 
         if (!senhasIguais(obj)) {
-            return Map.of("mensagem","Erro: A senha e a confirmação da senha devem ser iguais.");
+            return Map.of("mensagem","A senha e a confirmação da senha devem ser iguais.");
         }
 
         Optional<Cliente> clienteExistente = bd.findByEmailCpfRg(obj.getEmail(), obj.getCpf(), obj.getRg());
         if (clienteExistente.isPresent()) {
-            return Map.of("mensagem","Erro: Cliente já cadastrado com as mesmas informações");
+            return Map.of("mensagem","Cliente já cadastrado com as mesmas informações");
         }
 
         bd.save(obj);
-        return Map.of("mensagem", "O cliente " + obj.getNome() + "foi salvo corretamente");
+        return Map.of("mensagem", "O cliente " + obj.getNome() + " foi salvo corretamente");
     }
 
      @PutMapping("/api/cliente")
     public Map<String, String> alterar(@RequestBody Cliente obj){
         if (camposVazios(obj)) {
-            return Map.of("mensagem","Erro: Todo os campos devem ser preenchidos para realizar a alteração");
+            return Map.of("mensagem","Todo os campos devem ser preenchidos para realizar a alteração");
         }
         if (!senhasIguais(obj)) {
-            return Map.of("mensagem","Erro: A senha e a confirmação da senha devem ser iguais.");
+            return Map.of("mensagem","A senha e a confirmação da senha devem ser iguais.");
         }
 
         Optional<Cliente> clienteExistente = bd.findById(obj.getCodigo());
         if (!clienteExistente.isPresent()) {
-            return Map.of("mensagem","Erro: Cliente não encontrado para alteração.");
+            return Map.of("mensagem","Cliente não encontrado para alteração.");
         }
         bd.save(obj);
         return Map.of("mensagem", "O cliente " + obj.getNome() + " foi alterado corretamente");
     }
 
-    @GetMapping("/api/cliente/{codigo}")
-    public Cliente carregar(@PathVariable int codigo){
-        Optional<Cliente> obj = bd.findById(codigo);
+    @GetMapping("/api/cliente/{valor}")
+    public Cliente carregar(@PathVariable String valor){
+        Optional<Cliente> obj = bd.findByCodigoCpfRgEmail(valor);
         if (obj.isPresent()) {
             return obj.get();
         } else {
@@ -81,10 +80,11 @@ public class ClienteController {
         }
     }
 
-    @DeleteMapping("/api/cliente/{codigo}")
-    public Map<String, String> remover(@PathVariable int codigo) {
-        if (bd.existsById(codigo)) {
-            bd.deleteById(codigo);
+    @DeleteMapping("/api/cliente/{valor}")
+    public Map<String, String> remover(@PathVariable String valor) {
+        Optional<Cliente> obj = bd.findByCodigoCpfRgEmail(valor);
+        if (obj.isPresent()) {
+            bd.delete(obj.get());
             return null;
         } else {
             return Map.of("mensagem", "Cliente não encontrado");
