@@ -19,4 +19,7 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
     
     @Query(value = "SELECT * FROM cliente WHERE email = ?1 OR cpf = ?2 OR rg = ?3", nativeQuery = true)
     Optional<Cliente> findByEmailCpfRg(String email, String cpf, String rg);
+
+    @Query(value = "SELECT * FROM cliente WHERE codigo = ?1 OR cpf = ?1 OR rg = ?1 OR email = ?1", nativeQuery = true)
+    Optional<Cliente> findByCodigoCpfRgEmail(String valor);    
 }
