@@ -3,7 +3,6 @@
         <h2>Cadastro</h2><br>
         <div class="mensagem"><b><pre>{{ mensagem }}</pre></b></div> <br><br>
         <form>
-            <!--Ver se vai coloca o codigo-->
             <div class="input-group">
                 <input type="text" [(ngModel)]="obj.nome" name="nome" required title="Nome completo">
                 <label>Nome</label>
@@ -17,12 +16,12 @@
                 <label>CPF</label>
             </div>
             <div class="input-group">
-                <input type="tel" [(ngModel)]="obj.telefone" name="telefone" required pattern="\d{10,11}" title="Digite um número de telefone válido">
-                <label>Telefone</label>
-            </div>
-            <div class="input-group">
                 <input type="text" [(ngModel)]="obj.rg" name="rg" required pattern="\d{2}\.\d{3}\.\d{3}-\d{1}" title="Digite o RG no formato XX.XXX.XXX-X">
                 <label>RG</label>
+            </div>
+            <div class="input-group">
+                <input type="tel" [(ngModel)]="obj.telefone" name="telefone" required pattern="\d{10,11}" title="Digite um número de telefone válido">
+                <label>Telefone</label>
             </div>
             <div class="input-group">
                 <input type="text" [(ngModel)]="obj.logradouro" name="logradouro" required>
@@ -32,19 +31,23 @@
                 <input type="text" [(ngModel)]="obj.cep" name="cep" required pattern="\d{8}" title="Digite um CEP válido com 8 números">
                 <label>CEP</label>
             </div>
+                <div class="input-group">
+                    <input type="text" [(ngModel)]="obj.complemento" name="complemento">
+                    <label>Complemento</label>
+                </div>
             <div class="input-group">
                 <input type="text" [(ngModel)]="obj.cidade" name="cidade" required>
                 <label>Cidade</label>
+            </div>
+            <div class="input-group">
+                <input type="text" [(ngModel)]="obj.uf" name="uf" required>
+                <label>Uf</label>
             </div>
             <div class="input-group">
                 <input [type]="PasswordVisivel ? 'text' : 'password'" [(ngModel)]="obj.senha" name="senha" required>
                 <label>Senha</label>
                 <i class="fas" [class.fa-eye]="!PasswordVisivel" [class.fa-eye-slash]="PasswordVisivel" (click)="SenhaVisivel()"
                 id="eyeIcon"></i>
-            </div>
-            <div class="input-group">
-                <input type="text" [(ngModel)]="obj.complemento" name="complemento">
-                <label>Complemento</label>
             </div>
             <div class="input-group">
                 <input [type]="ConfirmaVisivel ? 'text' : 'password'" [(ngModel)]="obj.confirmarSenha" name="confirmarSenha" required>
