@@ -57,7 +57,7 @@ public class ProdutoController {
         }
 
         bd.save(obj);
-        return Map.of("mensagem", "O produto " + obj.getNome() + " \nfoi salvo corretamente.");//arrumar quebra de linha
+        return Map.of("mensagem", "O produto " + obj.getNome() + " \nfoi salvo corretamente.");
     }
 
     @PutMapping("/api/produto")
@@ -72,7 +72,7 @@ public class ProdutoController {
         }
 
         bd.save(obj);
-        return Map.of("mensagem","O produto " + obj.getNome() + " \n    foi alterado corretamente");
+        return Map.of("mensagem","O produto " + obj.getNome() + " \nfoi alterado corretamente");
     }
 
     @GetMapping("/api/produto/{valor}")
