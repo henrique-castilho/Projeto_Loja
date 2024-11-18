@@ -1,28 +1,36 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Cliente } from '../model/cliente';
-import { ClienteService } from '../service/cliente.service';
+import { Produto } from '../model/produto';
+import { ProdutoService } from '../service/produto.service';
 
 @Component({
-  selector: 'app-controle-cliente',
+  selector: 'app-controle-produto',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './controle-cliente.component.html',
-  styleUrl: './controle-cliente.component.css'
+  templateUrl: './controle-produto.component.html',
+  styleUrl: './controle-produto.component.css'
 })
-export class ControleClienteComponent {
+export class ControleProdutoComponent {
   public mensagem: string = "";
-  public obj: Cliente = new Cliente();
+  public obj: Produto = new Produto();
 
-  constructor(private service: ClienteService){}
+  public keywordsInput: string = "";
+
+  constructor(private service: ProdutoService){}
+
+  public updateKeywords(input: string): void {
+    this.obj.keywords = input
+      .split(",")
+      .map(keyword => keyword.trim())
+      .filter(keyword => keyword !== "");
+  }
 
   public gravar() {
     this.service.gravar(this.obj).subscribe({
       next: (data: any) => {
-        if (data.mensagem.includes("Todo os campos devem ser preenchidos") ||
-            data.mensagem.includes("A senha e a confirmação da senha devem ser iguais") ||
-            data.mensagem.includes("Cliente já cadastrado com as mesmas informações")) {
+        if (data.mensagem.includes("Todo os campos devem ser preenchidos e com valores válidos.") ||
+            data.mensagem.includes("Produto já cadastrado com as mesmas informações.") ) {
           this.mensagem = data.mensagem;
         } else {
           this.mensagem = data.mensagem;
@@ -35,13 +43,12 @@ export class ControleClienteComponent {
       }
     });
   }
-  
+
   public alterar() {
     this.service.alterar(this.obj).subscribe({
       next: (data: any) => {
-        if (data.mensagem.includes("Todo os campos devem ser preenchidos para realizar a alteração.") ||
-            data.mensagem.includes("A senha e a confirmação da senha devem ser iguais.") ||
-            data.mensagem.includes("Cliente não encontrado para alteração.")) {
+        if (data.mensagem.includes("Todo os campos devem ser preenchidos e com valores válidos.") ||
+            data.mensagem.includes("Produto não encontrado para alteração.")) {
           this.mensagem = data.mensagem;
         } else {
           this.mensagem = data.mensagem;
@@ -57,21 +64,22 @@ export class ControleClienteComponent {
       }
     });
   }
-  
+
   public carregar() {
     const valor = this.obterValorPreenchido();
     if (!valor) {
-      this.mensagem = "Preencha pelo menos um campo para pesquisar o cliente.";
+      this.mensagem = "Preencha pelo menos um campo para pesquisar o produto.";
       return;
     }
     this.service.carregar(valor).subscribe({
       next: (data) => {
         if (data === null) {
-          this.mensagem = "Cliente não encontrado, verifique!";
+          this.mensagem = "Produto não encontrado, verifique!";
           this.limpar();
         } else {
           this.obj = data;
-          this.mensagem = `Cliente com nome ${data.nome} encontrado`;
+          this.keywordsInput = data.keywords ? data.keywords.join(", ") : "";
+          this.mensagem = `Produto com nome ${data.nome} \nencontrado`;
         }
       },
       error: (err) => {
@@ -80,19 +88,20 @@ export class ControleClienteComponent {
       },
     });
   }
+  
 
   public remover() {
     const valor = this.obterValorPreenchido();
     if(!valor) {
-      this.mensagem = "Preencha pelo menos um campo para deletar o cliente."
+      this.mensagem = "Preencha pelo menos um campo para deletar o produto."
       return;
     }
     this.service.remover(valor).subscribe({
         next: (data) => {
             if (data === null) {
-                this.mensagem = "Cliente removido com sucesso!";
+                this.mensagem = "Produto removido com sucesso!";
             } else {
-                this.mensagem = "Cliente não encontrado";
+                this.mensagem = "Produto não encontrado.";
             }
             this.limpar();
         },
@@ -101,28 +110,17 @@ export class ControleClienteComponent {
         }
     });
   }
-  
+
   private obterValorPreenchido(): string | null {
     if (this.obj.codigo) return this.obj.codigo.toString(); 
-    if (this.obj.email) return this.obj.email;
-    if (this.obj.cpf) return this.obj.cpf;
-    if (this.obj.rg) return this.obj.rg;
+    if (this.obj.nome) return this.obj.nome;
     return null;
   }
 
   
   public limpar(){
-    this.obj = new Cliente();
-  }
-  
-  PasswordVisivel: boolean = false;
-  public SenhaVisivel(){
-    this.PasswordVisivel = !this.PasswordVisivel;
-  }
-  
-  ConfirmaVisivel: boolean = false;
-  public ConfirmaSenhaVisivel(){
-    this.ConfirmaVisivel = !this.ConfirmaVisivel;
+    this.obj = new Produto();
+    this.keywordsInput = "";
   }
 
 }

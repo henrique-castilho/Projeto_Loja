@@ -52,6 +52,12 @@
     color: azure;
 }
 
+.vitrine-vazia {
+    text-align: center;
+    font-size: 20px;
+    color: azure;
+}
+
 .grade-produtos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

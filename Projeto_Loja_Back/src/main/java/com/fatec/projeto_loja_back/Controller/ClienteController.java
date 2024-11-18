@@ -50,7 +50,7 @@ public class ClienteController {
         }
 
         bd.save(obj);
-        return Map.of("mensagem", "O cliente " + obj.getNome() + " foi salvo corretamente");
+        return Map.of("mensagem", "O cliente " + obj.getNome() + " \nfoi salvo corretamente");
     }
 
      @PutMapping("/api/cliente")
@@ -67,7 +67,7 @@ public class ClienteController {
             return Map.of("mensagem","Cliente não encontrado para alteração.");
         }
         bd.save(obj);
-        return Map.of("mensagem", "O cliente " + obj.getNome() + " foi alterado corretamente");
+        return Map.of("mensagem", "O cliente " + obj.getNome() + " \nfoi alterado corretamente.");
     }
 
     @GetMapping("/api/cliente/{valor}")

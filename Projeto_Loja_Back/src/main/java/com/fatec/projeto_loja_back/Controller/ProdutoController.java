@@ -27,7 +27,7 @@ public class ProdutoController {
         if (obj.getDescricao() == null || obj.getDescricao().trim().isEmpty()) {
             return true;
         }
-        if (obj.getKeywords() == null || obj.getKeywords().trim().isEmpty()) {
+        if (obj.getKeywords() == null || obj.getKeywords().isEmpty() || obj.getKeywords().stream().allMatch(keyword -> keyword.trim().isEmpty())) {
             return true;
         }
         if (obj.getValor() < 0) {
@@ -48,24 +48,36 @@ public class ProdutoController {
     @PostMapping("/api/produto")
     public Map<String, String> gravar(@RequestBody Produto obj) {
         if (camposVazios(obj)) {
-            return Map.of("mensagem","Erro: Todo os campos devem ser preenchidos e com valores válidos");
+            return Map.of("mensagem","Todo os campos devem ser preenchidos e com valores válidos.");
         }
+        
+        Optional<Produto> produtoExistente = bd.findByNome(obj.getNome());
+        if (produtoExistente.isPresent()) {
+            return Map.of("mensagem","Produto já cadastrado com as mesmas informações.");
+        }
+
         bd.save(obj);
-        return Map.of("mensagem", "O produto " + obj.getNome() + "foi salvo corretamente");
+        return Map.of("mensagem", "O produto " + obj.getNome() + " \nfoi salvo corretamente.");//arrumar quebra de linha
     }
 
     @PutMapping("/api/produto")
     public Map<String, String> alterar(@RequestBody Produto obj) {
         if (camposVazios(obj)) {
-            return Map.of("mensagem","Erro: Todo os campos devem ser preenchidos e com valores válidos");
+            return Map.of("mensagem","Todo os campos devem ser preenchidos e com valores válidos.");
         }
+
+        Optional<Produto> produtoExistente = bd.findById(obj.getCodigo());
+        if (!produtoExistente.isPresent()) {
+            return Map.of("mensagem","Produto não encontrado para alteração.");
+        }
+
         bd.save(obj);
-        return Map.of("mensagem","O produto " + obj.getNome() + " foi alterado corretamente");
+        return Map.of("mensagem","O produto " + obj.getNome() + " \n    foi alterado corretamente");
     }
 
-    @GetMapping("/api/produto/{codigo}")
-    public Produto carregar(@PathVariable int codigo) {
-        Optional<Produto> obj = bd.findById(codigo);
+    @GetMapping("/api/produto/{valor}")
+    public Produto carregar(@PathVariable String valor) {
+        Optional<Produto> obj = bd.findByCodigoNome(valor);
         if (obj.isPresent()) {
             return obj.get();
         } else {
@@ -73,13 +85,14 @@ public class ProdutoController {
         }
     }
 
-     @DeleteMapping("/api/produto/{codigo}")
-    public Map<String, String> remover(@PathVariable int codigo) {
-        if (bd.existsById(codigo)) {
-            bd.deleteById(codigo);
+     @DeleteMapping("/api/produto/{valor}")
+    public Map<String, String> remover(@PathVariable String valor) {
+        Optional<Produto> obj = bd.findByCodigoNome(valor);
+        if (obj.isPresent()) {
+            bd.delete(obj.get());
             return null;
         } else {
-            return Map.of("mensagem","Produto não encontrado");
+            return Map.of("mensagem","Produto não encontrado.");
         }
     }
 
