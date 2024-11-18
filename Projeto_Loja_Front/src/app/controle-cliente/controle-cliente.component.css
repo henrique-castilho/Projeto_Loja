@@ -15,6 +15,8 @@
 
 .mensagem {
     color: white;
+    margin-bottom: 15px;
+    font-weight: bold;
 }
 
 .form-box {
@@ -24,7 +26,7 @@
     width: 700px;
     max-width: 100%;
     box-shadow: 0 0 20px #00b0ff;
-    text-align: center;   
+    text-align: center;
 }
 
 form {
@@ -83,6 +85,17 @@ h2 {
     border-bottom: 2px solid #fff;
 }
 
+#eyeIcon {
+    color: white;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
 .botoes-container {
     display: flex;
     gap: 10px;
@@ -103,28 +116,12 @@ h2 {
     cursor: pointer;
     transition: 0.3s;
     flex: 1 1 auto;
-    max-width: 150px; 
+    max-width: 150px;
     text-align: center;
 }
 
 .btn:hover {
     background-color: #0090e0;
-}
-
-#eyeIcon {
-    color: white;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.toggle-password i {
-    font-size: 20px;
-    color: #333;
 }
 
 @media (orientation: portrait) {
