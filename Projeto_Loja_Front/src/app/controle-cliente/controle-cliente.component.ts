@@ -39,9 +39,9 @@ export class ControleClienteComponent {
   public alterar() {
     this.service.alterar(this.obj).subscribe({
       next: (data: any) => {
-        if (data.mensagem.includes("Todo os campos devem ser preenchidos para realizar a alteração") ||
+        if (data.mensagem.includes("Todo os campos devem ser preenchidos para realizar a alteração.") ||
             data.mensagem.includes("A senha e a confirmação da senha devem ser iguais.") ||
-            data.mensagem.includes("A senha e a confirmação da senha devem ser iguais.")) {
+            data.mensagem.includes("Cliente não encontrado para alteração.")) {
           this.mensagem = data.mensagem;
         } else {
           this.mensagem = data.mensagem;
