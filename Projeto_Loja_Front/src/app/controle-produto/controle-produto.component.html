@@ -1,0 +1,51 @@
+<div class="container-controle-produto">
+    <div class="form-box">
+        <h2>Controle de Produto</h2><br>
+        <div class="mensagem"><b><pre>{{ mensagem }}</pre></b></div> <br><br>
+
+        <form>
+            <div class="input-group">
+                <input type="number" [(ngModel)]="obj.codigo" name="codigo" required title="Codigo do Produto">
+                <label>Codigo</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" [(ngModel)]="obj.nome" name="nome" required title="Nome do produto">
+                <label>Nome</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" [(ngModel)]="obj.descricao" name="descricao" required title="Descricao do produto">
+                <label>Descrição</label>
+            </div>
+
+            <div class="input-group">
+                <input type="number" [(ngModel)]="obj.valor" name="valor" required title="Valor do Produto">
+                <label>Valor</label>
+            </div>
+
+            <div class="input-group">
+                <input type="number" [(ngModel)]="obj.quantidade" name="quantidade" required title="Quantidade de produtos no estoque">
+                <label>Quantidade</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" [(ngModel)]="keywordsInput" name="keywords" required (ngModelChange)="updateKeywords($event)" title="Insira palavras separadas por vírgula"/>
+                <label>Keywords</label>
+            </div>
+
+            <div class="input-group">
+                <input type="number" [(ngModel)]="obj.destaque" name="Destaque" required title="Destaque para ficar no topo (quanto maior fica mais no topo da lista)">
+                <label>Destaque</label>
+            </div>
+
+            <div class="botoes-container">    
+                <button type="submit" class="btn"(click)="gravar()">Cadastrar</button>
+                <button type="submit" class="btn"(click)="alterar()">Alterar</button>
+                <button type="submit" class="btn"(click)="carregar()">Pesquisar</button>
+                <button type="submit" class="btn"(click)="remover()">Deletar</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
