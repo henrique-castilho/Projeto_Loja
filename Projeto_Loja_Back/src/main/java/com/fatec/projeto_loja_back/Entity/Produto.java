@@ -1,9 +1,15 @@
 package com.fatec.projeto_loja_back.Entity;
 
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 
 @Entity
 public class Produto {
@@ -11,10 +17,13 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int codigo;
     private String nome;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String descricao;
     private double valor;
     private int quantidade;
-    private String keywords;
+    @ElementCollection(fetch = FetchType.LAZY)
+    private List<String> keywords;
     private int destaque = 0;
 
     public Produto(){}
@@ -59,11 +68,11 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    public String getKeywords() {
+    public List<String> getKeywords() {
         return keywords;
     }
 
-    public void setKeywords(String keywords) {
+    public void setKeywords(List<String> keywords) {
         this.keywords = keywords;
     }
 
