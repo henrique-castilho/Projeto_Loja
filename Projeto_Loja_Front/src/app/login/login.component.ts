@@ -15,6 +15,7 @@ export class LoginComponent {
   public mensagem: string = "";
   public obj: Cliente = new Cliente()
 
+  //REFAZER ESSA FUNÇÃO USANDO O BACK-END E BANCO DE DADOS
   public fazerLogin() {
     if (this.obj.email === "" || this.obj.senha === "") {
       this.mensagem = "Preencha todos os campos";
