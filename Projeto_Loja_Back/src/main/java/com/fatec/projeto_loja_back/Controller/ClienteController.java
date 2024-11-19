@@ -97,12 +97,15 @@ public class ClienteController {
     }
 
     @PostMapping("/api/cliente/login")
-    public Cliente fazerLogin(@RequestBody Cliente obj){
+    public Object fazerLogin(@RequestBody Cliente obj) {
+        if (obj.getEmail() == null || obj.getEmail().trim().isEmpty() || obj.getSenha() == null || obj.getSenha().trim().isEmpty()) {
+            return Map.of("mensagem", "Os campos email e senha são obrigatórios.");
+        }
         Optional<Cliente> retorno = bd.login(obj.getEmail(), obj.getSenha());
         if (retorno.isPresent()) {
             return retorno.get();
         } else {
-            return null;
+            return Map.of("mensagem", "Usuário e senha inválidos");
         }
     }
 
