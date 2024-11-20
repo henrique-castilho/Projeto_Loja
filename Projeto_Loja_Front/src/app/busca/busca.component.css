@@ -52,6 +52,12 @@
     color: azure;
 }
 
+.busca-vazia {
+    text-align: center;
+    font-size: 22px;
+    color: azure;
+}
+
 .grade-produtos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
