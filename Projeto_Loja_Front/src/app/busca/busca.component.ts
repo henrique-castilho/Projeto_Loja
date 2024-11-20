@@ -19,42 +19,45 @@ export class BuscaComponent {
   public mensagem: string = "Nossos Produtos"
   public filtro: string = ""
   public lista: Produto[] = []
-  public palavraChave: string = "";
 
   constructor(private service: ProdutoService, private route: ActivatedRoute){}
 
   ngOnInit(): void {
+   this.aplicarFiltroDaRota();
+    }
+
+  private aplicarFiltroDaRota(): void {
     this.route.queryParams.subscribe(params => {
       this.filtro = params['q'] || '';
       if (this.filtro) {
-        this.fazerBusca(this.filtro);
-      }
+        this.pesquisarProduto(this.filtro);
+      } 
     });
   }
 
-  public fazerBusca(termo: string): void {
+  public pesquisarProduto(termo: string): void {
     this.service.buscar(termo).subscribe({
       next: (data) => {
         this.lista = data;
         if (this.lista.length <= 0) {
-          this.mensagem = `Não foi encontrado nenhum produto com a palavra:<br><br>" ${termo} " `;
+          this.mensagem = `Nenhum produto encontrado para:<br><br>" ${termo} " `;
         } else {
           this.mensagem = `${this.lista.length} produto(s) encontrado(s) com a palavra "${termo}".`;
         }
       },
       error: () => {
-        this.mensagem = "Ocorreu um erro, volte mais tarde.";
+        this.mensagem = "Erro ao buscar produtos. Tente novamente mais tarde.";
       }
     });
   }
 
   get produtosFiltrados(): Produto[] {
-    if (!this.filtro) {
+    if (!this.filtro.trim()) {
       return this.lista;
     }
-    const filtroLower = this.filtro.toLowerCase();
+    const palavraFiltada = this.filtro.toLowerCase();
     return this.lista.filter(produto =>
-      produto.keywords.some(keyword => keyword.toLowerCase().includes(filtroLower))
+      produto.keywords.some(keyword => keyword.toLowerCase().includes(palavraFiltada))
     );
   }
 
