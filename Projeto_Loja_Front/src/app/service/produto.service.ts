@@ -30,7 +30,11 @@ export class ProdutoService {
     return this.http.get("http://localhost:8080/api/produto/vitrine");
   }
 
-  busca(palavraChave: string):Observable<any>{
+  buscar(palavraChave: string):Observable<any>{
     return this.http.get("http://localhost:8080/api/produto/busca/"+ palavraChave)
   }
+
+  detalhe(codigo: number): Observable<any>{
+    return this.http.get("http://localhost:8080/api/produto/detalhe/"+ codigo)
+  } 
 }
