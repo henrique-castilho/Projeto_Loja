@@ -32,8 +32,7 @@ export class VitrineComponent {
   }
 
   public verDetalhe(item:Produto) {
-    localStorage.setItem("produto", JSON.stringify(item));
-    window.location.href="./detalhe";
+    window.location.href = `/detalhe/${item.codigo}`;
   }
   
   public mostrarModal: boolean = false;
