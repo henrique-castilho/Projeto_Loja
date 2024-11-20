@@ -16,8 +16,8 @@
 
 
 <div class="container-vitrine">
-    <h3 class="mensagem">{{mensagem}}</h3>
-    <h4 *ngIf="lista.length <= 0">Não há nenhum produto na vitrine</h4>
+    <h3 class="mensagem" [innerHTML]="mensagem"></h3>
+    <h4 class="busca-vazia" *ngIf="lista.length <= 0">Tente buscar por outra palavra</h4>
     <div class="grade-produtos">
         <ng-container *ngFor="let item of lista">
             <div class="item-produto"

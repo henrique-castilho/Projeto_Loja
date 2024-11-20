@@ -111,4 +111,13 @@ public class ProdutoController {
         return bd.fazerBusca("%" + palavraChave + "%");
     }
    
+    @GetMapping("/api/produto/detalhe/{codigo}")
+    public Produto detalhe(@PathVariable int codigo) {
+        Optional<Produto> obj = bd.findById(codigo);
+        if (obj.isPresent()) {
+            return obj.get();
+        } else {
+            return null;
+        }
+    }
 }

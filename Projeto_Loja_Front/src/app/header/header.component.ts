@@ -11,13 +11,13 @@ import { Router } from '@angular/router';
 })
 
 export class HeaderComponent {
-  public filtro: string = ''
+  termoBusca : string = ""
 
   constructor(private router: Router) {}
-
-  fazerBusca() {
-    if (this.filtro.trim()) {
-      this.router.navigate(['/busca'], { queryParams: { q: this.filtro } })
+  
+  public fazerBusca() {
+    if (this.termoBusca.trim()) {
+      this.router.navigate(['/busca'], { queryParams: { q: this.termoBusca } });
     }
   }
 
