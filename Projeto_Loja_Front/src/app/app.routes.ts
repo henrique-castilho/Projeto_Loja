@@ -12,7 +12,7 @@ import { ControleProdutoComponent } from './controle-produto/controle-produto.co
 export const routes: Routes = [
     {path:"busca", component:BuscaComponent},
     {path:"cesta", component:CestaComponent},
-    {path:"detalhe", component:DetalheComponent},
+    {path:"detalhe/:codigo", component:DetalheComponent},
     {path:"login", component:LoginComponent},
     {path:"vitrine", component:VitrineComponent},
     {path:"esqueci-senha", component:EsqueciSenhaComponent},
