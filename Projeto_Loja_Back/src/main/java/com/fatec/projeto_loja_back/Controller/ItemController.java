@@ -19,7 +19,7 @@ public class ItemController {
         bd.save(obj);
     }
 
-    @PostMapping("/api/itensCesta/")
+    @PostMapping("/api/itensCesta")
     public void gravarLista(@RequestBody List<Item> obj){
         bd.saveAll(obj);
     }
