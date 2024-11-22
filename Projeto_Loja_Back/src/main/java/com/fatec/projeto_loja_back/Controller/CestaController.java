@@ -26,10 +26,11 @@ public class CestaController {
         bd.save(obj);
         return obj;
     }
-        @PutMapping("/api/cesta")
+
+    @PutMapping("/api/cesta")
     public void alterar(@RequestBody Cesta obj){
         bd.save(obj);
-       }
+    }
 
     @GetMapping("/api/cesta/{codigo}")
     public Cesta carregar(@PathVariable int codigo){
