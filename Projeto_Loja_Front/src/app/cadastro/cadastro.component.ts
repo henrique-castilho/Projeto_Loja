@@ -50,4 +50,12 @@ export class CadastroComponent {
   public limpar(){
     this.obj = new Cliente();
   }
+
+    //MUDAR PARA A NOVA PAGINA/com o banco de dados
+    ngOnInit(): void {
+      const clienteSalvo = localStorage.getItem("cliente");
+      if (clienteSalvo) {
+        this.obj = JSON.parse(clienteSalvo);
+      }
+    }
 }
