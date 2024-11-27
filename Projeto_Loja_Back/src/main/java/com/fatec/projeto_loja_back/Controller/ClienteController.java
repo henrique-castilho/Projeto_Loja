@@ -105,7 +105,7 @@ public class ClienteController {
         if (retorno.isPresent()) {
             return retorno.get();
         } else {
-            return Map.of("mensagem", "Usuário e senha inválidos");
+            return Map.of("mensagem", "Usuário ou senha inválidos");
         }
     }
 

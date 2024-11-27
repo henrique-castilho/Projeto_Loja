@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Cesta } from '../model/cesta';
 import { Item } from '../model/item';
+import { CestaService } from '../service/cesta.service'
 
 @Component({
   selector: 'app-cesta',
@@ -15,8 +16,9 @@ export class CestaComponent {
   public mensagem: string = "Sua cesta";
   public cesta: Cesta = new Cesta();
   public mostrarConfirmacao: boolean = false; 
+  public total: number = 0;
 
-  constructor(){
+  constructor(private service: CestaService){
     let json = localStorage.getItem("cesta");
     if(json!=null) {
       this.cesta = JSON.parse(json);
@@ -74,10 +76,43 @@ export class CestaComponent {
     this.mostrarConfirmacao = false;
   }
 
-  public finalizarCompra() {
-    this.mensagem = "Compra finalizada com sucesso!";
-    localStorage.removeItem("cesta");
-    this.cesta = new Cesta();
-    this.mostrarConfirmacao = false;
-  }
+  // public finalizarCompra() {
+  //   this.mensagem = "Compra finalizada com sucesso!";
+  //   localStorage.removeItem("cesta");
+  //   this.cesta = new Cesta();
+  //   this.mostrarConfirmacao = false;
+  // }
+
+  gravarPedido(){
+    let jsonCliente = localStorage.getItem("cliente");
+    if(jsonCliente != null) {
+      this.cesta.cliente = JSON.parse(jsonCliente);
+      this.cesta.total = this.total;
+      this.service.gravarPedido(this.cesta).subscribe({
+        next:(data)=>{
+          let novoPedido = data;
+          this.gravarItem(novoPedido);
+        },
+        error:(err)=>{this.mensagem = "Ocorreu um erro tente mais tarde!";}
+      });
+    } else {
+      this.mensagem = "Faça o login para gravar o pedido !!!";
+    }
+ }
+
+ gravarItem(novoPedido: Cesta){
+    for(let obj of this.cesta.itens){
+        obj.codigoCesta = novoPedido.codigo
+    }
+    this.service.gravarItem(this.cesta.itens).subscribe({
+      next:(data)=>{
+        this.mensagem="Pedido "+ novoPedido.codigo + " gravado com sucesso!!!";
+        localStorage.removeItem("cesta");
+        this.cesta = new Cesta();
+        this.mostrarConfirmacao = false;
+      },
+      error:(err)=>{this.mensagem = "Ocorreu um erro tente mais tarde!";}
+  });
+ }
+
 }

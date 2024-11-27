@@ -87,6 +87,15 @@ export class VitrineComponent {
     }
   }  
   
+  ngOnInit(): void {
+    const mensagemLogin = localStorage.getItem("loginMessage");
+    if (mensagemLogin) {
+      alert(mensagemLogin);
+      localStorage.removeItem("loginMessage");
+    }
+  }
+
+  
 
   public cancelarAdicao() {
     this.fecharModal();
