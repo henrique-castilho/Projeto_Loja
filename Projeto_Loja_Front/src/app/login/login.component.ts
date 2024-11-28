@@ -3,6 +3,7 @@ import { Cliente } from '../model/cliente';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ClienteService } from '../service/cliente.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,11 +17,8 @@ export class LoginComponent {
   public mensagem: string = "";
   public obj: Cliente = new Cliente()
 
-  constructor(private service: ClienteService) { }
+  constructor(private service: ClienteService, private router: Router) {}
 
-  //REFAZER ESSA FUNÇÃO USANDO O BACK-END E BANCO DE DADOS
-
-  //mexi aq henrique, caso de problema no login
   public fazerLogin() {
     this.service.login(this.obj).subscribe({
       next: (data) => {
@@ -30,12 +28,10 @@ export class LoginComponent {
           this.obj = data;
           if (this.obj.codigo) {
             localStorage.setItem("cliente", JSON.stringify(this.obj));
-
             localStorage.setItem("loginMessage", `Seja Bem-vindo, ${this.obj.nome}!`);
-
-            window.location.href = "./vitrine";
+            this.router.navigate(['/vitrine']);
           } else {
-            this.mensagem = "Login ou senha inválidos!";
+            this.mensagem = "E-mail ou senha inválidos!";
           }
         }
       },
