@@ -23,8 +23,13 @@ export class HeaderComponent {
 
   menuAberto = false;
   
-  public IrCadastro() {
-    window.location.href = "./cadastro";
+  public IrParaCliente() {
+    const clienteLogado = localStorage.getItem('cliente');
+    if (clienteLogado) {
+      this.router.navigate(['/usuario-logado']);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
   public IrCesta() {

@@ -5,37 +5,18 @@ import { Cliente } from '../model/cliente';
 import { ClienteService } from '../service/cliente.service';
 
 @Component({
-  selector: 'app-controle-cliente',
+  selector: 'app-usuario-logado',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './controle-cliente.component.html',
-  styleUrl: './controle-cliente.component.css'
+  templateUrl: './usuario-logado.component.html',
+  styleUrl: './usuario-logado.component.css'
 })
-export class ControleClienteComponent {
-  public mensagem: string = "";
+export class UsuarioLogadoComponent {
+  public mensagem: string = "Todos os campos devem estar preenchido para atualização e exclusão";
   public obj: Cliente = new Cliente();
 
   constructor(private service: ClienteService){}
 
-  public gravar() {
-    this.service.gravar(this.obj).subscribe({
-      next: (data: any) => {
-        if (data.mensagem.includes("Todo os campos devem ser preenchidos") ||
-            data.mensagem.includes("A senha e a confirmação da senha devem ser iguais") ||
-            data.mensagem.includes("Cliente já cadastrado com as mesmas informações")) {
-          this.mensagem = data.mensagem;
-        } else {
-          this.mensagem = data.mensagem;
-          this.limpar();  
-        }
-      },
-      error: (err) => {
-        console.error(err);
-        this.mensagem = "Ocorreu um erro, tente mais tarde!";
-      }
-    });
-  }
-  
   public alterar() {
     this.service.alterar(this.obj).subscribe({
       next: (data: any) => {
@@ -46,7 +27,6 @@ export class ControleClienteComponent {
           this.mensagem = data.mensagem;
         } else {
           this.mensagem = data.mensagem;
-          this.limpar();
         }
       },
       error: (err) => {
@@ -58,40 +38,28 @@ export class ControleClienteComponent {
       }
     });
   }
-  
-  public carregar() {
-    const valor = this.obterValorPreenchido();
-    if (!valor) {
-      this.mensagem = "Preencha pelo menos um campo para pesquisar o cliente.";
-      return;
-    }
-    this.service.carregar(valor).subscribe({
-      next: (data) => {
-        if (data === null) {
-          this.mensagem = "Cliente não encontrado, verifique!";
-          this.limpar();
-        } else {
-          this.obj = data;
-          this.mensagem = `Cliente com nome ${data.nome} encontrado`;
-        }
-      },
-      error: (err) => {
-        this.mensagem = "Ocorreu um erro, tente mais tarde!";
-        this.limpar();
-      },
-    });
+
+  public logOut(){
+    localStorage.clear();
+    this.limpar();
+    alert("LogOut feito. Até mais!!")
+    window.location.href="./login"
   }
 
-  public remover() {
+  public excluirConta(){
     const valor = this.obterValorPreenchido();
     if(!valor) {
-      this.mensagem = "Preencha pelo menos um campo para deletar o cliente."
+      this.mensagem = "Preencha pelo menos um campo para deletar."
       return;
     }
     this.service.remover(valor).subscribe({
         next: (data) => {
             if (data === null) {
-                this.mensagem = "Cliente removido com sucesso!";
+              this.mensagem = "Conta excluida com sucesso!";
+              localStorage.clear();
+              this.limpar();
+              alert("Conta excluida com sucesso!")
+              window.location.href="./cadastro"
             } else {
                 this.mensagem = "Cliente não encontrado";
             }
@@ -111,11 +79,6 @@ export class ControleClienteComponent {
     return null;
   }
 
-  
-  public limpar(){
-    this.obj = new Cliente();
-  }
-  
   PasswordVisivel: boolean = false;
   public SenhaVisivel(){
     this.PasswordVisivel = !this.PasswordVisivel;
@@ -126,4 +89,15 @@ export class ControleClienteComponent {
     this.ConfirmaVisivel = !this.ConfirmaVisivel;
   }
 
+  public limpar(){
+    this.obj = new Cliente();
+  }
+
+  //TENTAR PREENCHER OS CAMPOS USANDO O BANCO DE DADOS
+  ngOnInit(): void {
+    const clienteSalvo = localStorage.getItem("cliente");
+    if (clienteSalvo) {
+     this.obj = JSON.parse(clienteSalvo);
+    }
+  }
 }
