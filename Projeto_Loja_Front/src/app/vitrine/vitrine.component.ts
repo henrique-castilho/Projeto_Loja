@@ -4,11 +4,12 @@ import { Produto } from '../model/produto';
 import { Item } from '../model/item';
 import { Cesta } from '../model/cesta';
 import { ProdutoService } from '../service/produto.service';
+import { NotificacaoComponent } from '../notificacao/notificacao.component';
 
 @Component({
   selector: 'app-vitrine',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NotificacaoComponent],
   templateUrl: './vitrine.component.html',
   styleUrl: './vitrine.component.css'
 })
@@ -86,16 +87,6 @@ export class VitrineComponent {
       this.fecharModal();
     }
   }  
-  
-  ngOnInit(): void {
-    const mensagemLogin = localStorage.getItem("loginMessage");
-    if (mensagemLogin) {
-      alert(mensagemLogin);
-      localStorage.removeItem("loginMessage");
-    }
-  }
-
-  
 
   public cancelarAdicao() {
     this.fecharModal();
