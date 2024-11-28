@@ -8,6 +8,7 @@ import { EsqueciSenhaComponent } from './esqueci-senha/esqueci-senha.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ControleClienteComponent } from './controle-cliente/controle-cliente.component';
 import { ControleProdutoComponent } from './controle-produto/controle-produto.component';
+import { UsuarioLogadoComponent } from './usuario-logado/usuario-logado.component';
 
 export const routes: Routes = [
     {path:"busca", component:BuscaComponent},
@@ -19,5 +20,6 @@ export const routes: Routes = [
     {path:"cadastro", component:CadastroComponent},
     {path:"", component:VitrineComponent},
     {path:"controle-cliente", component:ControleClienteComponent},
-    {path:"controle-produto", component:ControleProdutoComponent}
+    {path:"controle-produto", component:ControleProdutoComponent},
+    {path:"usuario-logado", component:UsuarioLogadoComponent}
 ];
