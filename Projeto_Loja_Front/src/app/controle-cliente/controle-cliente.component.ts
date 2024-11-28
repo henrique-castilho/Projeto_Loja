@@ -41,7 +41,8 @@ export class ControleClienteComponent {
       next: (data: any) => {
         if (data.mensagem.includes("Todo os campos devem ser preenchidos para realizar a alteração.") ||
             data.mensagem.includes("A senha e a confirmação da senha devem ser iguais.") ||
-            data.mensagem.includes("Cliente não encontrado para alteração.")) {
+            data.mensagem.includes("Cliente não encontrado para alteração.") ||
+            data.mensagem.includes("Cliente já cadastrado com as mesmas informações")) {
           this.mensagem = data.mensagem;
         } else {
           this.mensagem = data.mensagem;
