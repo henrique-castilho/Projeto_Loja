@@ -53,7 +53,7 @@ public class ClienteController {
         return Map.of("mensagem", "O cliente " + obj.getNome() + " \nfoi salvo corretamente");
     }
 
-     @PutMapping("/api/cliente")
+    @PutMapping("/api/cliente")
     public Map<String, String> alterar(@RequestBody Cliente obj){
         if (camposVazios(obj)) {
             return Map.of("mensagem","Todo os campos devem ser preenchidos para realizar a alteração");
@@ -66,6 +66,12 @@ public class ClienteController {
         if (!clienteExistente.isPresent()) {
             return Map.of("mensagem","Cliente não encontrado para alteração.");
         }
+
+        Optional<Cliente> clienteExiste = bd.findByEmailCpfRg(obj.getEmail(), obj.getCpf(), obj.getRg());
+        if (clienteExiste.isPresent() && clienteExiste.get().getCodigo() != obj.getCodigo()) {
+            return Map.of("mensagem", "Cliente já cadastrado com as mesmas informações");
+        }
+
         bd.save(obj);
         return Map.of("mensagem", "O cliente " + obj.getNome() + " \nfoi alterado corretamente.");
     }
