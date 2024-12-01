@@ -93,7 +93,6 @@ export class UsuarioLogadoComponent {
     this.obj = new Cliente();
   }
 
-  //TENTAR PREENCHER OS CAMPOS USANDO O BANCO DE DADOS
   ngOnInit(): void {
     const clienteSalvo = localStorage.getItem("cliente");
     if (clienteSalvo) {
