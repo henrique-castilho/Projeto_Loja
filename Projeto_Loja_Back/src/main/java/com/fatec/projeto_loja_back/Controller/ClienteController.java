@@ -1,10 +1,14 @@
 package com.fatec.projeto_loja_back.Controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -116,12 +120,41 @@ public class ClienteController {
     }
 
     @PostMapping("/api/cliente/recupera")
-    public Cliente recuperarSenha(@RequestBody Cliente obj){
+    public ResponseEntity<?> recuperarSenha(@RequestBody Cliente obj) {
         Optional<Cliente> retorno = bd.recuperaSenha(obj.getEmail());
         if (retorno.isPresent()) {
-            return retorno.get();
+            String token = UUID.randomUUID().toString();
+            Map<String, String> resposta = new HashMap<>();
+            resposta.put("mensagem", "E-mail encontrado. Use o token para redefinir.");
+            resposta.put("token", token);
+            return ResponseEntity.ok(resposta);
         } else {
-            return null;
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("mensagem", "E-mail não encontrado."));
+        }
+    }
+    
+    @PostMapping("/api/cliente/redefinir")
+    public ResponseEntity<?> redefinirSenha(@RequestBody Map<String, String> dados) {
+        String email = dados.get("email");
+        String novaSenha = dados.get("novaSenha");
+        String token = dados.get("token");
+
+        if (token == null || token.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("mensagem", "Token inválido."));
+        }
+
+        Optional<Cliente> retorno = bd.recuperaSenha(email);
+        if (retorno.isPresent()) {
+            Cliente cliente = retorno.get();
+            if (cliente.getSenha().equals(novaSenha)) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("mensagem", "A nova senha não pode ser a mesma que a atual."));
+            }
+            cliente.setSenha(novaSenha);
+            cliente.setConfirmarSenha(novaSenha);
+            bd.save(cliente);
+            return ResponseEntity.ok(Map.of("mensagem", "Senha redefinida com sucesso."));
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("mensagem", "E-mail não encontrado."));
         }
     }
 }
