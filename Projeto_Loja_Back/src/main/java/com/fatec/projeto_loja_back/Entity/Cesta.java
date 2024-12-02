@@ -49,8 +49,5 @@ public class Cesta {
     }
     public void setItens(Set<Item> itens) {
         this.itens = itens;
-    }
-  
-
-    
+    }  
 }
