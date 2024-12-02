@@ -21,39 +21,51 @@ public class Item {
     public int getCodigoCesta() {
         return codigoCesta;
     }
+    
     public void setCodigoCesta(int codigoCesta) {
         this.codigoCesta = codigoCesta;
-    }
-   
+    }  
 
     public int getCodigoProduto() {
         return codigoProduto;
     }
+
+    public void setCodigoProduto(int codigoProduto) {
+        this.codigoProduto = codigoProduto;
+    }
+
     public int getCodigo() {
         return codigo;
     }
+
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
+
     public Produto getProduto() {
         return produto;
     }
+
     public void setProduto(Produto produto) {
         this.produto = produto;
-        this.codigoProduto = produto.getCodigo();
+         if (produto != null) {
+            this.codigoProduto = produto.getCodigo();
+        }
     }
+
     public int getQuantidade() {
         return quantidade;
     }
+
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
+
     public double getValor() {
         return valor;
     }
+
     public void setValor(double valor) {
         this.valor = valor;
     }
-
 }
-
