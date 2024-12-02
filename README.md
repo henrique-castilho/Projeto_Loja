@@ -5,7 +5,7 @@
 
 ## Como foi feito
 
-### As tecnologias usadas neste projeto foram: HTML, CSS e Angular (TypeScript)
+### As tecnologias usadas neste projeto foram: HTML, CSS, Angular (TypeScript) e Spring Boot (Java)
 
 
 ## Desenvolvedores envolvidos e seus GitHubs
