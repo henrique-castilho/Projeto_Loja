@@ -3,7 +3,7 @@
   <b class="mensagem">{{mensagem}}</b>
 
   <div class="button-container">
-    <button (click)="limparCesta()" [disabled]="cesta.itens.length === 0">Limpar</button>
+    <button (click)="limpar()" [disabled]="cesta.itens.length === 0">Limpar</button>
     <button *ngIf="cesta.itens.length > 0" (click)="abrirConfirmacao()">Finalizar</button>
   </div>
 
@@ -38,7 +38,7 @@
 
   <div *ngIf="mostrarConfirmacao" class="confirmacao-dialog">
     <p>Tem certeza de que deseja finalizar a compra?</p>
-    <button (click)="gravarPedido()">Sim</button>
+    <button (click)="gravarPedido()">Sim</button> 
     <button (click)="fecharConfirmacao()">Não</button>
   </div>
 </div>
